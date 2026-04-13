@@ -4800,51 +4800,73 @@ FOOTER FIX
 }
 
 /* =========================
-REMOVE LARGE SPACES BETWEEN SECTIONS
+REMOVE EXTRA SPACES / OVERFLOW
+========================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+section {
+    margin: 0;
+}
+
+/* remove random white gaps */
+* {
+    box-sizing: border-box;
+}
+
+/* =========================
+HEADER MOBILE MENU
 ========================= */
 
-/* Kill forced full-screen height */
-section {
-    min-height: auto !important;
-    height: auto !important;
-    padding-top: 40px !important;
-    padding-bottom: 40px !important;
-    margin: 0 !important;
+/* hide hamburger on desktop */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
 }
 
-/* Remove big empty gaps from specific sections if any */
-.sec,
-.perkhidmatan-section,
-.pengumuman-section,
-.borang-section,
-.peta-section { 
-    margin: 0 !important;
-    padding-top: 40px !important;
-    padding-bottom: 40px !important;
+/* default menu */
+#header ul {
+    display: flex;
 }
 
-/* Remove extra spacing from headings */
-h1, h2, h3 {
-    margin-top: 0 !important;
+/* MOBILE */
+@media (max-width: 768px) {
+
+    /* show hamburger */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+
+    /* hide menu initially */
+    #header ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0,53,73,0.95);
+        margin-top: 10px;
+        border-radius: 10px;
+        padding: 10px 0;
+    }
+
+    /* show when active */
+    #header ul.active {
+        display: flex;
+    }
+
+    #header ul li {
+        text-align: center;
+        margin: 5px 0;
+    }
 }
 
-/* Fix spacing caused by parallax/hero sections */
-section::before,
-section::after {
-    display: none !important;
-}
 
-/* Remove hidden spacing from containers */
-.container,
-.wrapper,
-.content {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-/* Prevent accidental extra space */
-body {
-    line-height: normal;
-}
 
 
