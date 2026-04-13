@@ -4633,22 +4633,46 @@ main {
     from { transform: scale(0.7); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
 /* =========================
-MOBILE FIX — REMOVE EXTRA SPACE (REAL FIX)
+FORCE REMOVE MOBILE GAPS (REAL FINAL FIX)
 ========================= */
 @media (max-width: 768px) {
 
-    /* keep full screen but REMOVE extra expansion */
-    section {
-        height: 100vh !important;
-        min-height: 100vh !important;
+    /* remove all outer spacing */
+    body, section {
+        margin: 0 !important;
         padding: 0 !important;
     }
 
-    /* FIX these specific problematic sections */
-    .faq-section,
-    .peta-section {
-        min-height: 100vh !important;
+    /* remove spacing inside sections */
+    section > div,
+    section > * {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* fix header pushing content down */
+    #header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    /* REMOVE GAP CAUSED BY FIRST ELEMENT */
+    section:first-child {
+        padding-top: 0 !important;
+    }
+
+    /* CRITICAL: remove space caused by hidden elements */
+    br {
+        display: none;
+    }
+
+    /* remove spacing from titles */
+    h1, h2, h3 {
+        margin: 0 !important;
         padding: 0 !important;
     }
 }
