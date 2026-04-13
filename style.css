@@ -106,6 +106,13 @@ html {
     height: 80px;
     width: auto;
     display: block;
+
+    
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 #touch{
@@ -131,7 +138,7 @@ html {
 section {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -167,7 +174,8 @@ section::before {
 
 
 #rocks{
-    width: 800px;
+     width: 100%;
+    max-width: 800px;
     height: auto;
     bottom: 40px;
     left: 0;
@@ -496,7 +504,17 @@ section {
     text-align: center;
 }
 
-/* Properties for text content */
+/* Properties for text content */////
+
+
+
+
+
+
+
+
+
+
 .sec h2 {
     font-family: 'Poppins', sans-serif; /* formal sans-serif */
     font-weight: 800; /* bold for emphasis */
@@ -1276,6 +1294,58 @@ transform:rotate(180deg);
     transform: scale(1.03);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   TEXT RESPONSIVE FIX
+========================= */
+
+@media (max-width: 768px){
+
+    .sec h2{
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    .sec #name{
+        font-size: 1.1em;
+        padding: 0 10px;
+    }
+
+    .sec h3{
+        font-size: 1.4em;
+        margin: 15px 0;
+    }
+
+    .sec h4{
+        font-size: 1em;
+    }
+
+    .sec p{
+        margin: 10px;
+        font-size: 0.95em;
+        line-height: 1.6em;
+    }
+
+    .sec ul{
+        margin: 0 10px;
+    }
+
+    .sec ul li{
+        margin: 10px 0;
+    }
+}
+
 
 /* FIX IMAGE */
 .pengumuman-card img {
@@ -4562,6 +4632,90 @@ main {
 @keyframes popIn {
     from { transform: scale(0.7); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
+}
+
+/* =========================
+SAFE RESPONSIVE FIX (DO NOT CHANGE DESIGN)
+========================= */
+
+/* Prevent horizontal scroll */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Make all images scale properly */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Fix containers going out of screen */
+section, div {
+    max-width: 100%;
+}
+
+/* Ensure flex items don’t overflow */
+* {
+    min-width: 0;
+}
+
+/* Fix long text overflow */
+p, h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Fix fixed widths causing overflow */
+[class*="container"],
+[class*="wrapper"],
+[class*="grid"] {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Maintain your layout but allow shrinking */
+.pengumuman-card,
+.gov-card,
+.borang-card {
+    min-width: 0;
+}
+
+/* Fix header overflow */
+#header {
+    width: 100%;
+    left: 0;
+}
+
+/* Ensure iframe/map responsive */
+iframe {
+    max-width: 100%;
+}
+
+/* Prevent elements from exceeding viewport */
+* {
+    box-sizing: border-box;
+}
+
+/* Small screens ONLY scaling fix (no layout change) */
+@media (max-width: 768px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Keep layout same but scale slightly */
+    html {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    html {
+        font-size: 85%;
+    }
 }
 
 
