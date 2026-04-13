@@ -4633,49 +4633,31 @@ main {
     from { transform: scale(0.7); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
-
 /* =========================
-MOBILE: REMOVE WHITE SPACES BETWEEN SECTIONS ONLY
+MOBILE: FORCE ALL SECTIONS LIKE FIRST PAGE
 ========================= */
 @media (max-width: 768px) {
 
-    /* remove vertical gaps between sections */
+    /* Make every section behave like first section */
     section {
+        height: 100vh !important;
+        min-height: 100vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* remove any internal spacing causing gaps */
+    section > * {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
     }
 
-    /* remove extra padding creating gaps */
-    section,
-    .sec,
-    .perkhidmatan-section,
-    .pengumuman-section,
-    .borang-section,
-    .peta-section {
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-    }
-
-    /* remove spacing from inner containers */
-    .container,
-    .wrapper,
-    .content {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-    }
-
-    /* remove heading gaps */
-    h1, h2, h3 {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-    }
-
-    /* remove hidden spacing from pseudo elements */
-    section::before,
-    section::after {
-        display: none !important;
+    /* prevent overflow creating fake gaps */
+    html, body {
+        overflow-x: hidden;
     }
 }
-        
-
-
