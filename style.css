@@ -4634,30 +4634,21 @@ main {
     to { transform: scale(1); opacity: 1; }
 }
 /* =========================
-MOBILE: FORCE ALL SECTIONS LIKE FIRST PAGE
+MOBILE FIX — REMOVE EXTRA SPACE (REAL FIX)
 ========================= */
 @media (max-width: 768px) {
 
-    /* Make every section behave like first section */
+    /* keep full screen but REMOVE extra expansion */
     section {
         height: 100vh !important;
         min-height: 100vh !important;
-        margin: 0 !important;
         padding: 0 !important;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
 
-    /* remove any internal spacing causing gaps */
-    section > * {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-    }
-
-    /* prevent overflow creating fake gaps */
-    html, body {
-        overflow-x: hidden;
+    /* FIX these specific problematic sections */
+    .faq-section,
+    .peta-section {
+        min-height: 100vh !important;
+        padding: 0 !important;
     }
 }
