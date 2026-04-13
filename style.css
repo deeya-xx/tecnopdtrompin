@@ -1,0 +1,4567 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    
+}
+
+html,
+body {
+    overflow-x: hidden;
+     margin: 0;
+    padding: 0;
+    width: 100%;
+    
+    
+    /* To prevent Horizontal scroll */
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #0a1a2f;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* To scrolling animation */
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5em 5em;
+    display: flex;
+    flex-direction: column;   /* THIS makes text appear above nav */
+    align-items: center;
+    z-index: 99999;
+
+    background: rgba(0, 53, 73, 0.6); /* transparent blue */
+    backdrop-filter: blur(5px); /* glass effect */
+    /* Header shld be above everything */
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:10px;
+}
+
+.jabatan-name{
+    font-size:1.7em;
+    font-weight:600;
+    line-height:1.2;
+    text-align:center;
+}
+
+#header .logo {
+    color: #002431;
+    font-weight: 800;
+    font-size: 2.5em;
+    text-decoration: none;
+    /* To prevent Underline */
+}
+
+#header ul {
+    display: flex;
+    /* To get elements in row */
+    justify-content: space-around;
+    align-items: center;
+}
+
+#header ul li {
+    list-style: none;
+    /* To Remove dot */
+    margin: 0px 20px;
+}
+
+#header ul li a {
+    text-decoration: none;
+    /* To prevent Underline */
+    padding: 6px 15px;
+    color: white;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+#header ul li a:hover,
+#header ul li a.active {
+    background: white;
+    color: #003549;
+}
+
+/* Logo image size */
+#header .logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+#touch{
+    position:absolute;
+    bottom:70px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:1.6em;
+    letter-spacing:3px;
+    color:white;
+    font-weight:500;
+    animation: blink 2s infinite;
+    z-index:60;   /* VERY IMPORTANT */
+    text-align:center;
+}
+
+@keyframes blink{
+    0%,100%{opacity:1;}
+    50%{opacity:0.4;}
+}
+
+/* The Section Body... Set it to max size of screen */
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* To blend section color with water color */
+section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+    filter: blur(1px);
+    z-index: 10;
+}
+
+/* Make all images absolute and cover whole screen */
+
+
+.top-section img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    pointer-events:none;
+}
+
+
+
+
+#rocks{
+    width: 800px;
+    height: auto;
+    bottom: 40px;
+    left: 0;
+
+    
+}
+
+
+/* Properites for th text on top section  */
+section #text span {
+    font-size: 0.6em;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 6px;
+}
+
+section #text {
+    position: absolute;
+    color: white;
+    font-size: 5vw;
+    text-align: center;
+    line-height: 0.9em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* center horizontally and vertically */
+    z-index: 50; /* higher than all background images */
+}
+
+
+/* The explore Button */
+#explore {
+    text-decoration: none;
+    /* To prevent Underline */
+    padding: 8px 25px;
+    background: white;
+    color: #003549;
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    transform: translateY(140px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    /* To move it 100px below from center */
+}
+
+#explore:hover {
+    background: #003549;
+    color: white;
+}
+
+/* Propeties of Top button */
+#top {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: #4faa2e;
+    bottom: 10%;
+    right: 5%;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 25px;
+    border-radius: 50%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+
+
+/* Glass Effect */
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-Left: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    padding: 1em;
+    margin-bottom: 2%;
+}
+.glass h3 {
+    color: #003549;
+}
+
+.glass p, 
+.glass li, 
+.glass h4 {
+    color: #003549;
+}
+section {
+    margin-bottom: 0;
+}
+
+/* Properties for middle section (below water) */
+.sec {
+    position: relative;
+    background: #f5f7fa;
+    color: #003549;
+    padding: 10px 20px;
+    z-index: 50;
+    overflow: hidden;
+}
+.visi-misi-section{
+    padding: 80px 20px;
+    background: #f5f7fa;
+     margin-top: 0;
+}
+
+.section-title{
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #003549;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   GOV VISI & MISI (KIOSK UI UPGRADE)
+   RESPONSIVE + INTERACTIVE
+   NO FONT SIZE CHANGES
+========================= */
+
+
+.gov-section{
+    padding: 40px 20px 10px;   /* tighter spacing (fix empty gap) */
+    background: transparent;
+    position: relative;
+    overflow: visible;
+}
+
+/* container */
+.gov-container{
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* HEADER */
+.gov-header{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.gov-header h2{
+    color: #003549;
+    letter-spacing: 3px;
+}
+
+.gov-line{
+    width: 90px;
+    height: 3px;
+    background: linear-gradient(90deg, #0b5e8e, #4faa2e);
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+
+
+/* CARD BASE */
+.gov-card{
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px 28px;
+    border: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+
+    /* smooth feel */
+    transition: all 0.35s ease;
+}
+
+/* subtle animated top glow */
+.gov-card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #0b5e8e, #4faa2e);
+    transition: 0.5s;
+}
+
+/* HOVER / TOUCH FEEDBACK */
+.gov-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.gov-card:hover::before{
+    left: 0;
+}
+
+/* TITLES */
+.gov-card h3{
+    color: #003549;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+/* TEXT */
+.gov-card p,
+.gov-card ul{
+    color: #333;
+    line-height: 1.8em;
+}
+
+/* LIST */
+.gov-card ul{
+    padding-left: 20px;
+}
+
+/* ICON EFFECT (optional but subtle professional feel) */
+.gov-card h3::after{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #0b5e8e;
+    margin-top: 6px;
+}
+
+/* MOBILE OPTIMIZATION */
+@media screen and (max-width: 768px){
+    .gov-section{
+        padding: 25px 15px 5px;
+    }
+
+    .gov-card{
+        padding: 20px;
+    }
+}
+.gov-footer{
+    background: #0b2f3a;
+    color: #ffffff;
+    margin-top: 0;
+    padding-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* MAIN GRID */
+.gov-footer-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* HEADINGS */
+.gov-footer-col h3{
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.gov-footer-col h4{
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-left: 3px solid #4faa2e;
+    padding-left: 10px;
+}
+
+/* TEXT */
+.gov-footer-col p{
+    font-size: 0.95em;
+    line-height: 1.7em;
+    opacity: 0.9;
+}
+
+/* LINKS */
+.gov-footer-col ul{
+    list-style: none;
+    padding: 0;
+}
+
+.gov-footer-col ul li{
+    margin-bottom: 10px;
+}
+
+.gov-footer-col ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95em;
+    opacity: 0.85;
+    transition: 0.2s;
+}
+
+.gov-footer-col ul li a:hover{
+    opacity: 1;
+    text-decoration: underline;
+    color: #00e0ff;
+    padding-left: 5px;
+}
+
+/* BOTTOM BAR */
+.gov-footer-bottom{
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+    padding: 15px;
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px){
+    .gov-footer-container{
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+}
+
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Properties for text content */
+.sec h2 {
+    font-family: 'Poppins', sans-serif; /* formal sans-serif */
+    font-weight: 800; /* bold for emphasis */
+    font-size: 4em; /* increase size for "Selamat Datang" */
+    color: #003549;
+    text-align: center;
+    line-height: 1.2em;
+    margin-bottom: 30px;
+}
+
+.sec #name {
+    font-family: 'Poppins', sans-serif; /* formal sans-serif */
+    font-weight: 500; /* medium weight */
+    font-size: 1.5em; /* smaller than main greeting */
+    color: white;
+    text-align: center;
+    line-height: 1.4em;
+}
+
+.sec h3 {
+    font-size: 1.8em;
+    margin: 2%;
+    font-family: 'Poppins', sans-serif; 
+    color: #003549;
+}
+
+.sec h4 {
+    font-size: 1.2em;
+    text-decoration: underline;
+    font-weight: 600;
+    color: #003549;
+}
+
+.sec p {
+    margin: 10px 20px 40px;
+    font-family: 'Poppins', sans-serif; /* Body text use Poppins for clarity */
+    color: #003549;
+    font-weight: 400; 
+}
+
+.sec ul {
+    margin: 0 5%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* normal for body text */
+    color: #003549;
+}
+
+.sec ul li {
+    margin: 2%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* normal for body text */
+    color: #003549;
+}
+
+
+/* Make all fishes image as absolute.. To overlap with background */
+.fishes {
+    position: absolute;
+    opacity: 0.8;
+}
+
+/* Properties for each fish and sea bed*/
+#fish1 {
+    top: 0%;
+}
+
+#fish2 {
+    top: 32%;
+}
+
+#fish3 {
+    top: 60%;
+}
+
+#fish4 {
+    top: 87%;
+}
+
+#seabed {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: 1;
+}
+.top-section{
+    position: relative;
+    overflow: hidden;
+}
+
+/* ALL background images */
+.top-section img{
+    z-index: 1;
+}
+.bubbles{
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+.bubbles img{
+    position: absolute;
+    width:40%;
+    height:40%;
+    opacity: 0.25;
+    animation: floatLeaf 10s linear infinite;
+}
+.bubbles img:nth-child(1){
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.bubbles img:nth-child(2){
+    left: 55%;
+    top: 40%;
+    animation-delay: 2s;
+}
+
+.bubbles img:nth-child(3){
+    left: 80%;
+    top: 70%;
+    animation-delay: 4s;
+}
+.bubbles img:nth-child(1){
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.bubbles img:nth-child(2){
+    left: 55%;
+    top: 40%;
+    animation-delay: 2s;
+}
+
+.bubbles img:nth-child(3){
+    left: 80%;
+    top: 70%;
+    animation-delay: 4s;
+}
+
+/* text */
+#text, #touch, #explore{
+    z-index: 5;
+    position: absolute;
+}
+
+/* bubbles MUST be above background but below text */
+.sea-life{
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.undersea {
+    position: absolute;
+    opacity: 1;
+}
+
+#sea1 {
+    top: 10%;
+    left: 1%;
+    width: 20%;
+}
+
+#sea2 {
+    top: 16%;
+    right: 1%;
+    width: 10%;
+}
+
+#sea3 {
+    top: 40%;
+    left: 0;
+    width: 12%;
+}
+
+#sea4 {
+    top: 50%;
+    right: 0;
+    width: 12%;
+}
+
+#sea5 {
+    top: 70%;
+    left: 1%;
+    width: 10%;
+}
+
+#sea6 {
+    top: 75%;
+    right: 2%;
+    width: 6%;
+}
+
+#sea7 {
+    top: 90%;
+    right: 70%;
+    width: 10%;
+}
+
+#sea8 {
+    bottom: 0;
+    left: 55%;
+    width: 10%;
+    z-index: 100;
+}
+
+
+  
+
+.gov-card.active .card-details{
+    max-height: 300px;
+}
+
+/* GRID */
+.gov-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+.gov-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ICON + TITLE */
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.card-top i {
+    font-size: 22px;
+    color: #1e3a8a;
+}
+
+/* SHORT TEXT */
+.short {
+    margin-top: 10px;
+    color: #555;
+}
+
+/* HIDDEN DETAILS (ACCORDION) */
+.card-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+    margin-top: 10px;
+}
+
+.gov-card.active .card-details {
+    max-height: 200px;
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Properties for mobile */
+@media screen and (max-width: 650px) {
+
+    #header {
+        padding: 1em 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    #header ul {
+        padding: 0.5em;
+    }
+
+    section #text {
+        font-size: 20vw;
+        /* Adjust text size acc to screen size */
+    }
+
+    /* Using contian to make img fit mobile screen size */
+    /* height and width chnages size and position */
+    section img#cloud {
+        object-fit: contain;
+        height: 600px;
+        width: 600px;
+    }
+
+    section img#bird1 {
+    width: 200px !important;
+    height: auto !important; /* maintains aspect ratio */
+    object-fit: contain !important;
+}
+
+.service-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+    section img#bird2 {
+        object-fit: contain;
+        height: 750px;
+        width: 500px;
+    }
+
+    /* Adjust text content acc to screen size */
+    .sec ul li {
+        margin: 20px;
+    }
+
+    .sec ul {
+        margin: 0px 0px;
+    }
+
+    .sec h3 {
+        font-size: 1.5em;
+        margin: 20px 0px;
+    }
+
+    .sec p {
+        margin: 1% 4%;
+    }
+
+    #seabed {
+        object-fit: contain;
+        left: 0;
+        width: 750px;
+    }
+    .service-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+    .glass {
+    background: white;
+    color: #003549;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.glass:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+.glass h3 {
+    color: #003549;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    border-left: 5px solid #085a7a;
+    padding-left: 10px;
+}
+.glass ul {
+    padding-left: 20px;
+}
+.content-wrapper{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+
+
+    #sea1 {
+        top: 7%;
+        width: 40%;
+    }
+
+    #sea2 {
+        top: 25%;
+        width: 20%;
+    }
+
+    #sea3 {
+        top: 42%;
+        width: 25%;
+    }
+
+    #sea4 {
+        top: 52%;
+        width: 25%;
+    }
+
+    #sea5 {
+        top: 72%;
+        left: 1%;
+        width: 20%;
+    }
+
+    #sea6 {
+        top: 80%;
+        right: 2%;
+        width: 15%;
+    }
+
+    #sea7 {
+        top: 96%;
+        left: 1%;
+        width: 20%;
+    }
+
+    #sea8 {
+        left: 50%;
+        width: 15%;
+    }
+}
+
+/* PERKHIDMATAN PAGE */
+
+.perkhidmatan-section {
+    width: 100%;
+    min-height: 130vh;
+    margin: 0;
+    padding: 60px 0 40px;
+    background: #ffffff;
+    display: block;
+}
+
+.perkhidmatan-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.perkhidmatan-grid {
+    display: flex;
+    gap: 25px;
+
+    overflow-x: auto;           /* IMPORTANT */
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch; /* smooth iOS swipe */
+    touch-action: pan-x;               /* allow horizontal swipe */
+
+    padding: 20px 10px;
+    margin-top: 10px;
+
+    cursor: grab;
+    scroll-padding-left: 10px;
+    scroll-padding-right: 10px;
+}
+.perkhidmatan-section,
+.perkhidmatan-container {
+    box-sizing: border-box;
+}
+.perkhidmatan-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.perkhidmatan-section .gov-line {
+    background: linear-gradient(90deg, #ffffff, #4faa2e);
+}
+
+.perkhidmatan-card {
+    min-width: 300px;
+    max-width: 320px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 18px;
+    padding: 18px;
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.perkhidmatan-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(120deg, #4faa2e, #0b5e8e, transparent);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+
+.perkhidmatan-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,53,73,0.15);
+}
+.perkhidmatan-section .gov-header {
+    margin-bottom: 10px; /* was 25px+ before indirectly */
+}
+.perkhidmatan-section .gov-header h2 {
+    color: #003549;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    animation: titleGlow 2.5s ease-in-out infinite;
+}
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(255,255,255,0.4),
+                     0 0 10px rgba(79,170,46,0.4);
+    }
+
+    50% {
+        text-shadow: 0 0 15px rgba(255,255,255,0.8),
+                     0 0 25px rgba(79,170,46,0.8),
+                     0 0 35px rgba(0,53,73,0.6);
+    }
+}
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(255,255,255,0.4),
+                     0 0 10px rgba(79,170,46,0.4);
+    }
+
+    50% {
+        text-shadow: 0 0 15px rgba(255,255,255,0.8),
+                     0 0 25px rgba(79,170,46,0.8),
+                     0 0 35px rgba(0,53,73,0.6);
+    }
+}
+
+/* Allow normal images inside cards */
+.perkhidmatan-card img,
+.service-img {
+    position: relative !important;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    pointer-events: none;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+.perkhidmatan-section .perkhidmatan-card h3,
+.perkhidmatan-section .perkhidmatan-card p,
+.perkhidmatan-section .perkhidmatan-card li {
+    color: #003549 !important;
+    position: relative;
+    z-index: 2;
+}
+.perkhidmatan-section .service-details p,
+.perkhidmatan-section .service-details li {
+    color: #333 !important;
+}
+
+/* HEADER */
+.service-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+}
+
+.service-header h3{
+font-size:20px;
+
+}
+
+/* ARROW ICON */
+.service-header i{
+transition:0.3s;
+}
+.service-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+    
+}
+.service-header h3 {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* OPEN STATE */
+.perkhidmatan-card.active .service-details {
+    max-height: 500px; /* big enough */
+    opacity: 1;
+    margin-top: 10px;
+    transform: translateY(0);
+}
+
+.perkhidmatan-card.active {
+    background: rgba(79,170,46,0.15);
+    border: 1px solid rgba(79,170,46,0.6);
+}
+
+@media (max-width: 768px) {
+    .perkhidmatan-card {
+        min-width: 85%;
+    }
+}
+
+
+.perkhidmatan-card.active .service-header i{
+transform:rotate(180deg);
+}
+.toggle-btn {
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color: #003549;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+.perkhidmatan-card.active .toggle-btn {
+    transform: rotate(90deg) scale(1.1);
+}
+.service-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    padding: 8px 0;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.carousel-controls button {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.carousel-controls button:hover {
+    background: #4faa2e;
+}
+
+.section-smoke {
+    position: absolute;
+    bottom: -80px; /* IMPORTANT: overlap into next section */
+    left: 0;
+    width: 100%;
+    height: 200px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* SMOKE LAYERS */
+.section-smoke::before,
+.section-smoke::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    left: -50%;
+    top: 0;
+
+    background: radial-gradient(circle at 30% 50%, rgba(15,42,61,0.6), transparent 60%),
+                radial-gradient(circle at 70% 50%, rgba(15,42,61,0.5), transparent 60%);
+
+    filter: blur(60px);
+    animation: smokeFlow 12s infinite linear;
+}
+
+.section-smoke {
+    opacity: 0.9;
+}
+
+.section-smoke::after {
+    animation-delay: 4s;
+    opacity: 0.6;
+}
+
+@keyframes smokeFlow {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10%); }
+    100% { transform: translateX(0); }
+}
+
+.pengumuman-section {
+    width: 100%;
+    background: #f5f7fa;
+    padding: 70px 20px;
+    overflow: hidden;   /* IMPORTANT */
+}
+
+/* container */
+.pengumuman-container {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;   /* IMPORTANT */
+}
+
+.pengumuman-grid-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.pengumuman-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+
+/* optional: hide scrollbar */
+.pengumuman-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* EACH CARD = 50% WIDTH (2 per view) */
+.pengumuman-card {
+    flex: 0 0 calc(50% - 10px);
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+
+    scroll-snap-align: start;
+    position: relative;
+}
+
+/* hover effect */
+.pengumuman-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* FIX IMAGE */
+.pengumuman-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+/* CONTENT */
+.pengumuman-content {
+    padding: 18px;
+}
+
+.pengumuman-content h3 {
+    font-size: 1.1em;
+    color: #003549;
+    margin-bottom: 10px;
+}
+
+.pengumuman-content p {
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6em;
+}
+
+/* DATE TAG */
+.pengumuman-content span {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.85em;
+    color: white;
+    background: #0b5e8e;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* hover overlay effect */
+.pengumuman-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,53,73,0.15), transparent);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.pengumuman-card:hover::after {
+    opacity: 1;
+}
+
+
+
+/* ========================= MAP SECTION IMPROVEMENT ========================= */ 
+.peta-section {
+    width: 100%;
+    min-height: 150vh;
+    background: #f5f7fa;
+    padding: 120px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.peta-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.peta-layout {
+    display: flex;
+    flex-direction: row;   /* SIDE BY SIDE */
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.peta-map {
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+    border: 2px solid rgba(79,170,46,0.3);
+    flex: 2;
+    min-width: 65%;
+}
+
+/* keep iframe full width under search */
+.peta-map iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
+}
+
+.peta-map:hover iframe {
+    transform: scale(1.03);
+}
+
+.peta-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .peta-layout {
+        flex-direction: column;
+    }
+
+    .peta-map,
+    .peta-info {
+        min-width: 100%;
+    }
+}
+.peta-map::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 2px;
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+}
+.peta-actions {
+    display: flex;
+    flex-direction: row;   /* SAME LINE */
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;       /* allows mobile wrapping */
+}
+
+.peta-actions input {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 16px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+}
+
+/* BUTTON STYLE */
+.peta-actions button {
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .peta-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .peta-actions input,
+    .peta-actions button {
+        width: 100%;
+    }
+}
+
+/* HOVER EFFECT */
+.peta-actions button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* CLICK EFFECT */
+.peta-actions button:active {
+    transform: scale(0.97);
+}
+
+/* GLOW ANIMATION */
+.peta-actions button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transform: skewX(-25deg);
+}
+
+.peta-actions button:hover::after {
+    animation: shine 0.8s ease;
+}
+
+@keyframes shine {
+    100% {
+        left: 200%;
+    }
+}
+
+.peta-card {
+    background: white;
+    padding: 12px 14px;   /* smaller inner space */
+    margin-bottom: 10px;  /* tighter spacing */
+    border-radius: 12px;
+    color: #003549;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.peta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.peta-card h3 {
+    color: #0b5e8e;
+    font-size: 1em;  
+}
+
+.peta-card p{
+    font-size: 0.9em;     /* smaller text */
+    line-height: 1.4em;
+}
+#map {
+    width: 100%;
+    height: 700px;
+    border-radius: 18px;
+}
+
+.peta-map {
+    flex: 2;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+
+    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+    border: 2px solid rgba(79,170,46,0.3);
+
+    /* 👇 REDUCED HEIGHT CONTAINER */
+    max-height: 420px;
+}
+
+.peta-map iframe {
+    width: 100%;
+    height: 420px;   /* 👈 smaller map */
+    border: 0;
+    transition: transform 0.5s ease;
+}
+
+.peta-actions-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* mobile safe */
+    margin: 20px 0 30px;
+}
+
+/* SEARCH BAR */
+.map-tools{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-tools input{
+    padding: 10px 14px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 250px;
+    color: black;          /* text you type */
+    background: white;
+}
+
+.map-tools button{
+    padding: 10px 16px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    color: black;
+}.map-tools button:hover{
+    background: #333;
+}
+
+
+
+.map-tools input::placeholder{
+    color: rgba(0,0,0,0.6);
+}
+
+/* =========================
+   FAQ KIOSK UPGRADE
+========================= */
+
+.faq-section{
+    width: 100%;
+    min-height: 200vh;
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #eef3f8, #dfe9f1);
+}
+
+/* container */
+.faq-container{
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* list */
+.faq-grid{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* card */
+.faq-item{
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* hover */
+.faq-item:hover{
+    transform: translateY(-4px);
+}
+
+/* QUESTION */
+.faq-question{
+    padding: 20px 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+    color: white;
+}
+
+.faq-question h3{
+    font-size: 1.1em;
+    color: white;
+}
+
+.faq-question span{
+    font-size: 1.6em;
+    transition: 0.3s;
+}
+
+/* ANSWER */
+.faq-answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background: #ffffff;
+}
+
+/* TEXT CONTENT */
+.faq-answer-content{
+    padding: 20px 25px;
+    color: #333;
+    line-height: 1.7em;
+
+    max-height: 300px;        /* 👈 IMPORTANT */
+    overflow-y: auto;         /* 👈 SCROLL HERE */
+}
+
+/* scrollbar */
+.faq-answer-content::-webkit-scrollbar{
+    width: 6px;
+}
+
+.faq-answer-content::-webkit-scrollbar-thumb{
+    background: linear-gradient(#0b5e8e, #4faa2e);
+    border-radius: 10px;
+}
+
+/* ACTIVE */
+.faq-item.active .faq-answer{
+    max-height: 400px;  /* 👈 allow expansion */
+}
+
+.faq-item.active .faq-question span{
+    transform: rotate(45deg);
+}
+
+/* glow effect when open */
+.faq-item.active{
+    border: 1px solid rgba(79,170,46,0.5);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+    .faq-question h3{
+        font-size: 0.95em;
+    }
+
+    .faq-answer-content{
+        max-height: 250px;
+    }
+}
+.faq-question:active{
+    transform: scale(0.98);
+}
+
+/* BORANG CARD KIOSK STYLE */
+.borang-card{
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    transition: 0.3s;
+}
+
+.borang-card:hover{
+    transform: translateY(-8px);
+}
+
+/* PDF ICON AREA */
+.borang-preview{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 280px;
+    background: linear-gradient(135deg, #f5f7fa, #e1e8ef);
+}
+
+.borang-preview img{
+    width: 90px;
+    opacity: 0.8;
+}
+
+/* OVERLAY */
+.borang-overlay{
+    padding: 20px;
+    background: white;
+}
+
+.borang-overlay h3{
+    color: #003549;
+    font-size: 1.05em;
+    margin-bottom: 12px;
+}
+
+/* BUTTONS */
+.borang-actions{
+    display: flex;
+    gap: 10px;
+}
+
+.borang-actions a{
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: 0.3s;
+    color: white;
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+}
+
+.borang-actions a:hover{
+    transform: scale(1.05);
+    background: #003549;
+}
+
+check all these 3 together for the borang section. does them all match? <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore the interactive Halloween Party project, showcasing responsive design, animations, and web development techniques. Immerse yourself in the spooky ambiance of Halloween.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/pdtrompin.jpg">
+
+    <!-- Page Title -->
+    <title>Parallax Scrolling Website</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Open Graph meta tags for image sharing -->
+    <meta property="og:title" content="Parallax Scroll Site">
+    <meta property="og:description"
+        content="Explore the interactive Halloween Party project and Immerse yourself in the spooky ambiance of Halloween.">
+    <meta property="og:image" content="https://drive.google.com/uc?id=1GFbBHTi7w8weRVqLJ7bkofezEEGg4U30">
+    <meta property="og:type" content=”website” />
+    <!-- <meta property="og:url" content="https://parallax-website-by-vineet.netlify.app/"> -->
+</head>
+
+<body>
+
+  <!-- Header / Navigation -->
+  <header id="header">
+  <div class="header-left">
+    <a href="#" class="logo">
+      <img src="images/logo3.png" alt="PDT Logo">
+    </a>
+    <div class="jabatan-name">
+      Pejabat Daerah dan Tanah Rompin<br>
+    </div>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#" class="active">Utama</a></li>
+      <li><a href="#">Perkhidmatan</a></li>
+      <li><a href="#">Pengumuman</a></li>
+      <li><a href="#">Peta</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Borang</a></li>
+      <li><a href="#">Hubungi</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- Top Section (Parallax Above Water) -->
+  <section class="top-section">
+    <div class="sea-life">
+      
+      <div class="bubbles">
+        <img src="images/sea/daun.png" alt="">
+        <img src="images/sea/daun.png" alt="">
+        <img src="images/sea/daun.png" alt="">
+      </div>
+    </div>
+    <img src="images/land/sky.png" id="sky" class="wallpaper">
+    <img src="images/land/sun.png" id="sun">
+    <img src="images/land/mountains.png" id="mountains" class="wallpaper">
+    <img src="images/land/cloud.png" id="cloud">
+    <h1 id="text">
+        <span>Selamat Datang ke</span><br>
+        Pejabat Daerah dan Tanah Rompin<br>
+    </h1>
+    <!-- Date and Time -->
+  <p id="datetime"></p>
+    <p id="touch">Sila Sentuh Skrin Untuk Masuk ke Menu Utama</p>
+
+    
+
+    <img src="images/land/waterfall.png" id="forest">
+    <img src="images/land/bird1.png" id="bird1">
+    <img src="images/land/bird2.png" id="bird2">
+    <a href="#sec" id="explore">Lihat Maklumat</a>
+  </section>
+
+  <!-- Middle Section (Below Water / Content) -->
+  <main class="sec" id="sec">
+    <!-- Background layers for parallax -->
+    <div class="undersea-layer">
+      <img src="images/sea/map1.png" id="sea1" class="undersea">
+      
+    </div>
+
+  <section class="gov-section">
+
+    <div class="gov-container">
+
+        <div class="gov-header">
+            <h2>VISI & MISI</h2>
+            <div class="gov-line"></div>
+        </div>
+
+        <div class="gov-grid">
+
+            <!-- VISI -->
+            <div class="gov-card">
+                <h3>VISI </h3>
+                <p>
+                    Menjadikan Pejabat Daerah dan Tanah Rompin sebagai Peneraju Kecemerlangan
+Pentadbiran Daerah dan Tanah.
+                </p>
+            </div>
+
+            <!-- MISI -->
+            <div class="gov-card">
+                <h3>MISI</h3>
+                <p>Beriltizam Untuk Memberikan Perkhidmatan Yang Cemerlang, Berkualiti Dan Berintegriti</p>
+            </div>
+
+        </div>
+
+    </div>
+<div class="section-smoke"></div>
+</section>
+
+<!-- =========================
+PERKHIDMATAN (3RD PAGE)
+========================= -->
+<section class="perkhidmatan-section" id="perkhidmatan">
+
+<div class="perkhidmatan-container">
+  <div class="carousel-controls">
+    <button onclick="scrollLeftCards()">&#10094;</button>
+    <button onclick="scrollRightCards()">&#10095;</button>
+</div>
+
+<div class="gov-header">
+<h2>PERKHIDMATAN</h2>
+<div class="gov-line"></div>
+</div>
+
+<div class="perkhidmatan-grid">
+
+<!-- 1 -->
+<div class="perkhidmatan-card">
+
+<img src="images/sea/tanah.jpg" class="service-img">
+
+<div class="service-header">
+<h3>Pengurusan Tanah</h3>
+<!-- THIS IS THE TOGGLE BUTTON -->
+        <button class="toggle-btn">></button>
+</div>
+
+<div class="service-details">
+
+<p>Urusan berkaitan pemilikan dan pentadbiran tanah.</p>
+
+<ul>
+<li>Pendaftaran pindah milik dan gadaian</li>
+<li>Permohonan tanah kerajaan dan LPS</li>
+<li>Semakan dan bayaran cukai tanah</li>
+<li>Tukar syarat dan pecah sempadan tanah</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- 2 -->
+<div class="perkhidmatan-card">
+
+<img src="images/sea/pantai.avif" class="service-img">
+
+<div class="service-header">
+<h3>Pembangunan Daerah</h3>
+<!-- THIS IS THE TOGGLE BUTTON -->
+        <button class="toggle-btn">></button>
+</div>
+
+<div class="service-details">
+
+<ul>
+<li>Perancangan projek pembangunan</li>
+<li>Pemantauan projek prasarana</li>
+<li>Penyelarasan bantuan kerajaan</li>
+<li>Kerjasama komuniti setempat</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- 3 -->
+<div class="perkhidmatan-card">
+
+<img src="images/sea/peta.jpg" class="service-img">
+
+<div class="service-header">
+<h3>Pentadbiran Daerah</h3>
+<!-- THIS IS THE TOGGLE BUTTON -->
+        <button class="toggle-btn">></button>
+</div>
+
+<div class="service-details">
+
+<ul>
+<li>Aduan awam melalui sistem SISPAA</li>
+<li>Temu janji Pegawai Daerah</li>
+<li>Khidmat pelanggan</li>
+<li>Pengurusan aset dan ICT</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- 4 -->
+<div class="perkhidmatan-card">
+
+<img src="images/sea/rompin.jpg" class="service-img">
+
+<div class="service-header">
+<h3>Perundangan</h3>
+<!-- THIS IS THE TOGGLE BUTTON -->
+        <button class="toggle-btn">></button>
+</div>
+
+<div class="service-details">
+
+<ul>
+<li>Nasihat undang-undang pentadbiran tanah</li>
+<li>Sokongan perundangan pentadbiran daerah</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- =========================
+PENGUMUMAN (4TH PAGE)
+========================= -->
+<section class="pengumuman-section" id="pengumuman">
+
+  <div class="pengumuman-container">
+
+    <!-- HEADER -->
+    <div class="gov-header">
+      <h2>PENGUMUMAN</h2>
+      <div class="gov-line"></div>
+    </div>
+
+    <!-- GRID -->
+    <div class="pengumuman-grid">
+
+      <!-- CARD 1 -->
+      <div class="pengumuman-card">
+        <img src="images/announcement/notice1.jpg" alt="">
+        <div class="pengumuman-content">
+          <h3>Penutupan Pejabat Sementara</h3>
+          <p>Pejabat akan ditutup pada 15 April 2026 sempena cuti umum negeri.</p>
+          <span>12 April 2026</span>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="pengumuman-card">
+        <img src="images/announcement/notice2.jpg" alt="">
+        <div class="pengumuman-content">
+          <h3>Bayaran Cukai Tanah</h3>
+          <p>Orang awam dinasihatkan membuat bayaran sebelum tarikh akhir.</p>
+          <span>10 April 2026</span>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="pengumuman-card">
+        <img src="images/announcement/notice3.jpg" alt="">
+        <div class="pengumuman-content">
+          <h3>Program Hari Bersama Rakyat</h3>
+          <p>Program akan diadakan di Dewan Rompin pada hujung minggu ini.</p>
+          <span>8 April 2026</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- =========================
+SMART PETA (KIOSK MODE)
+========================= -->
+<section class="peta-section" id="peta">
+
+  <div class="peta-container">
+
+    <div class="gov-header">
+      <h2>PETA</h2>
+      <div class="gov-line"></div>
+    </div>
+
+    <!-- ACTION BAR -->
+    <div class="peta-actions">
+
+      <button onclick="toggleFullscreenMap()">⛶ Fullscreen</button>
+
+      <button onclick="openGoogleMaps()">🧭 Arah</button>
+
+      <button onclick="startVoiceGuide()">🎤 Suara</button>
+
+      <button onclick="generateQR()">📱 QR</button>
+
+    </div>
+
+    <!-- SEARCH BAR -->
+      <div class="map-tools">
+        <input id="mapSearch" type="text" placeholder="Cari lokasi..." />
+        <button onclick="searchLocation()">🔎 Cari</button>
+        <button onclick="findNearby()">📍 Berhampiran</button>
+      </div>
+  
+
+    <!-- MAIN -->
+    <div class="peta-layout">
+
+
+
+      <!-- MAP -->
+      <div class="peta-map" id="mapBox">
+        <iframe
+          id="map"
+          src="https://www.google.com/maps?q=Pejabat%20Daerah%20dan%20Tanah%20Rompin&output=embed"
+          loading="lazy">
+        </iframe>
+
+
+        <!-- animated pointer -->
+        <div class="map-pointer"></div>
+
+      </div>
+
+      <!-- SIDE INFO -->
+      <div class="peta-info">
+
+        <div class="peta-card">
+          <h3>📍 Lokasi Utama</h3>
+          <p>Pejabat Daerah & Tanah Rompin</p>
+        </div>
+
+        <div class="peta-card">
+          <h3>🕒 Operasi</h3>
+          <p>Isnin - Jumaat<br>8:00 a.m - 5:00 p.m</p>
+        </div>
+
+        <div class="peta-card highlight">
+          <h3>📡 Navigasi Pintar</h3>
+          <p>Sistem kiosk automatik pandu pengguna</p>
+        </div>
+
+        <!-- QR BOX -->
+        <div class="qr-box" id="qrBox"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+FAQ SECTION (NEW PAGE UNDER PETA)
+========================= -->
+<section class="faq-section" id="faq">
+
+  <div class="faq-container">
+
+    <div class="gov-header">
+      <h2>SOALAN LAZIM (FAQ)</h2>
+      <div class="gov-line"></div>
+    </div>
+
+    <div class="faq-grid">
+
+      <!-- 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Siapa yang perlu membayar Cukai Tanah?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Seksyen 95 Kanun Tanah Negara 1965: Setiap pemilik tanah berdaftar atau wakil bagi pihaknya bertanggungjawab untuk menjelaskan Cukai Tanah.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Mengapa perlu membayar Cukai Tanah?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Seksyen 95 Kanun Tanah Negara 1965: Pemilik tanah wajib membayar Cukai Tanah kepada Pihak Berkuasa Negeri setiap tahun tanpa perlu menunggu bil.
+            Bil hanya sebagai pemberitahuan sahaja.
+            <br><br>
+            Jika tidak menerima bil, pemilik boleh mendapatkan di Pejabat Daerah dan Tanah dengan membawa geran atau resit tahun sebelumnya.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Bilakah perlu membayar Cukai Tanah?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Seksyen 94 Kanun Tanah Negara 1965: Bayaran perlu dibuat dari 1 Januari hingga 31 Mei setiap tahun.
+            <br><br>
+            Selepas 1 Jun, ia dianggap tunggakan dan dikenakan denda lewat sebanyak 10%.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Bagaimana pembayaran boleh dibuat?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Pembayaran boleh dibuat melalui:
+            <br><br>
+            • Tunai<br>
+            • Bank draf / Wang Pos / Cek atas nama pentadbir<br>
+            • Online CIMB Clicks<br>
+            • FPX (https://fpxptg.pahang.gov.my/)
+            <br><br>
+            Bank terlibat:<br>
+            • CIMB Bank<br>
+            • Maybank<br>
+            • Bank Islam<br>
+            • Public Bank<br>
+            • Hong Leong Bank
+          </p>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Di mana pembayaran boleh dibuat?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Pembayaran boleh dibuat di semua Pejabat Daerah dan Tanah dalam Negeri Pahang.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+BORANG PAGE (DOWNLOAD FORMS)
+========================= -->
+<section class="borang-section" id="borang">
+
+  <div class="borang-container">
+
+    <!-- HEADER -->
+    <div class="gov-header">
+      <h2>BORANG MUAT TURUN</h2>
+      <div class="gov-line"></div>
+    </div>
+
+    <!-- GRID -->
+    <div class="borang-grid">
+
+    <div class="borang-card">
+
+  <!-- PDF PREVIEW ICON / IMAGE -->
+  <div class="borang-preview">
+    <img src="images/forms/pdf-icon.png" alt="PDF">
+  </div>
+
+  <!-- CONTENT -->
+  <div class="borang-overlay">
+    <h3>Borang Permohonan Tanah (PDF)</h3>
+
+    <div class="borang-actions">
+
+  <a href="./pdf/pewartaan-kadar-cukai.pdf" target="_blank">
+  👁 Lihat PDF
+</a>
+
+  <button onclick="generateBorangQR()">
+    📱 Papar QR Download
+  </button>
+
+</div>
+
+<!-- QR shown separately -->
+<div class="qr-box-container">
+  <div class="qr-box" id="qrBoxBorang"></div>
+</div>
+  </div>
+
+</div>
+
+    </div>
+
+  </div>
+
+</section>
+</main>
+
+   
+
+    <!-- Animated fish and seabed -->
+    
+
+  <footer class="gov-footer">
+
+    <div class="gov-footer-container">
+
+        <!-- LEFT: AGENCY INFO -->
+        <div class="gov-footer-col">
+            <h3>Pejabat Daerah dan Tanah Rompin</h3>
+            <p>
+                Kompleks Pejabat Kerajaan Negeri Daerah Rompin<br>
+                26800 Kuala Rompin, Pahang Darul Makmur
+            </p>
+        </div>
+
+        <!-- CENTER: QUICK LINKS -->
+        <div class="gov-footer-col">
+            <h4>Pautan Pantas</h4>
+            <ul>
+                <li><a href="#">Utama</a></li>
+                <li><a href="#">Perkhidmatan</a></li>
+                <li><a href="#">Pengumuman</a></li>
+                <li><a href="#">Borang</a></li>
+                <li><a href="#">Hubungi</a></li>
+            </ul>
+        </div>
+
+        <!-- RIGHT: INFO -->
+        <div class="gov-footer-col">
+            <h4>Maklumat</h4>
+            <ul>
+                <li><a href="#">Dasar Privasi</a></li>
+                <li><a href="#">Penafian</a></li>
+                <li><a href="#">Peta Laman</a></li>
+                <li><a href="#">Soalan Lazim (FAQ)</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="gov-footer-bottom">
+        <p>© 2026 Pejabat Daerah dan Tanah Rompin. Hak Cipta Terpelihara.</p>
+    </div>
+
+</footer>
+
+  <!-- Back to top -->
+  <a id="top" href="#"><i class="fas fa-arrow-up"></i></a>
+  <div id="serviceModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeService()">&times;</span>
+
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</body>
+<!-- Always include javascript at end of file...just above html tag -->
+<script src="action.js"></script>
+
+</html>  // =======================
+// PARALLAX ELEMENTS
+// =======================
+const time = document.getElementsByClassName('bubbles')[0];
+
+let fish2move = 100;
+let fish3move = 900;
+let fish4move = 1200;
+
+const text = document.getElementById("text");
+const cloud = document.getElementById("cloud");
+const bird1 = document.getElementById("bird1");
+const bird2 = document.getElementById("bird2");
+const explore = document.getElementById("explore");
+const header = document.getElementById("header");
+const sun = document.getElementById("sun");
+const forest = document.getElementById("forest");
+const mountains = document.getElementById("mountains");
+
+// OPTIONAL elements (avoid errors if not exist)
+const splash = document.getElementById("splash");
+const fish1 = document.getElementById("fish1");
+const fish2 = document.getElementById("fish2");
+const fish3 = document.getElementById("fish3");
+const fish4 = document.getElementById("fish4");
+const sky = document.getElementById("sky");
+
+// =======================
+// MOBILE ADJUSTMENT
+// =======================
+if (screen.width < 400 && time) {
+    time.style.setProperty('--transform-duration', '15s');
+    time.style.setProperty('--transform-y', '-700vh');
+
+    fish2move = 1680;
+    fish3move = 3000;
+    fish4move = 4300;
+}
+
+// =======================
+// PARALLAX SCROLL
+// =======================
+window.addEventListener('scroll', function () {
+
+    let value = window.scrollY;
+
+    if (text) text.style.top = 50 + value * -0.2 + '%';
+    if (cloud) cloud.style.left = value * 2 + 'px';
+
+    if (bird1) {
+        bird1.style.top = value * 0.1 + 'px';
+        bird1.style.left = value * 1 + 'px';
+    }
+
+    if (bird2) {
+        bird2.style.top = value * -0.1 + 'px';
+        bird2.style.left = value * -2 + 'px';
+    }
+
+    if (explore) explore.style.marginTop = value * 1.5 + 'px';
+
+    if (forest) forest.style.top = value * 0.4 + 'px';
+    if (sky) sky.style.top = value * 0.25 + 'px';
+    if (mountains) mountains.style.top = value * 0.25 + 'px';
+
+    //if (header) header.style.top = value * 0.7 + 'px';
+    if (sun) sun.style.top = value * 1 + 'px';
+
+    if (splash && value < 380) {
+        splash.style.top = 20 + value * -0.3 + 'px';
+    }
+
+    if (fish1) fish1.style.right = (value - 100) + 'px';
+    if (fish2) fish2.style.left = (value - fish2move) + 'px';
+    if (fish3) fish3.style.right = (value - fish3move) + 'px';
+    if (fish4) fish4.style.left = (value - fish4move) + 'px';
+});
+
+// =======================
+// SOCIAL LINKS (SAFE)
+// =======================
+const links = document.getElementsByClassName("social-media");
+
+function openlink(x) {
+    const urls = [
+        "https://www.instagram.com/_.vini._02_/",
+        "https://www.linkedin.com/in/vineet-kumar-gupta-2833ab196/",
+        "https://github.com/VineetKumar02",
+        "https://vineet-portfolio-site.netlify.app/"
+    ];
+
+    if (urls[x - 1]) {
+        window.open(urls[x - 1], "_blank");
+    }
+}
+
+// attach safely
+for (let i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", () => openlink(i + 1));
+}
+
+// =======================
+// DATE & TIME
+// =======================
+function updateDateTime() {
+    const now = new Date();
+
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+
+    const date = now.toLocaleDateString('ms-MY', options);
+    const time = now.toLocaleTimeString('ms-MY');
+
+    const el = document.getElementById("datetime");
+    if (el) {
+        el.innerHTML = date + " | " + time;
+    }
+}
+
+// =======================
+// PERKHIDMATAN (FIXED)
+// =======================
+// =======================
+// PERKHIDMATAN (FINAL)
+// =======================
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cards = document.querySelectorAll(".perkhidmatan-card");
+
+    cards.forEach(card => {
+
+        card.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            const isActive = card.classList.contains("active");
+
+            // CLOSE ALL
+            cards.forEach(c => c.classList.remove("active"));
+
+            // OPEN ONLY IF NOT ACTIVE
+            if (!isActive) {
+                card.classList.add("active");
+            }
+
+            // ===== SOUND =====
+            clickSound.currentTime = 0;
+            clickSound.play();
+
+            // ===== RIPPLE =====
+            const ripple = document.createElement("span");
+            ripple.classList.add("ripple");
+
+            const rect = card.getBoundingClientRect();
+            ripple.style.left = (e.clientX - rect.left) + "px";
+            ripple.style.top = (e.clientY - rect.top) + "px";
+
+            card.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+
+        });
+
+    });
+
+});
+
+
+function scrollLeftCards() {
+    document.querySelector(".perkhidmatan-grid").scrollBy({
+        left: -300,
+        behavior: "smooth"
+    });
+}
+
+function scrollRightCards() {
+    document.querySelector(".perkhidmatan-grid").scrollBy({
+        left: 300,
+        behavior: "smooth"
+    });
+}
+
+function toggleFullscreenMap() {
+    const map = document.getElementById("mapBox");
+
+    if (!map.classList.contains("fullscreen-map")) {
+        map.style.transition = "all 0.6s ease";
+    }
+
+    map.classList.toggle("fullscreen-map");
+}
+
+function openGoogleMaps() {
+    window.open("https://www.google.com/maps/place/Rompin", "_blank");
+}
+
+function startVoiceGuide() {
+    const msg = new SpeechSynthesisUtterance(
+        "Selamat datang ke sistem peta Pejabat Daerah dan Tanah Rompin. Sila tekan butang arah untuk navigasi."
+    );
+
+    msg.lang = "ms-MY";
+    speechSynthesis.speak(msg);
+}
+
+function generateQR() {
+    const qrBox = document.getElementById("qrBox");
+
+    const url = "https://www.google.com/maps/place/Rompin";
+
+    qrBox.innerHTML = `
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(url)}">
+    `;
+}
+
+let sections = ["peta", "pengumuman", "perkhidmatan", "sec"];
+let index = 0;
+
+setInterval(() => {
+    index = (index + 1) % sections.length;
+
+    const el = document.getElementById(sections[index]);
+
+    if (el) {
+        el.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+
+}, 20000); // slower = more kiosk-like
+
+const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
+
+document.querySelectorAll(".pengumuman-card").forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.toggle("active");
+    });
+});
+
+function searchLocation() {
+    const input = document.getElementById("mapSearch").value;
+    const mapFrame = document.getElementById("map");
+
+    if (!input.trim()) return;
+
+    mapFrame.src =
+        "https://www.google.com/maps?q=" +
+        encodeURIComponent(input) +
+        "&output=embed";
+}
+
+function findNearby() {
+    const mapFrame = document.getElementById("map");
+    mapFrame.src =
+        "https://www.google.com/maps?q=nearby+Rompin+Pahang&output=embed";
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("mapSearch");
+
+    if (input) {
+        input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                searchLocation();
+            }
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+
+        question.addEventListener("click", () => {
+
+            // close all other items first
+            faqItems.forEach((el) => {
+                if (el !== item) {
+                    el.classList.remove("active");
+                }
+            });
+
+            // toggle current one
+            item.classList.toggle("active");
+        });
+    });
+
+});
+
+function generateBorangQR() {
+    let qrBox = document.getElementById("qrBoxBorang");
+
+    qrBox.innerHTML = "";
+
+   const pdfUrl = "./pdf/pewartaan-kadar-cukai.pdf";
+    new QRCode(qrBox, {
+        text: pdfUrl,
+        width: 180,
+        height: 180
+    });
+}
+
+
+
+
+
+
+// =======================
+// INTERVALS
+// =======================
+setInterval(changeServiceImages, 3000);
+setInterval(updateDateTime, 1000);
+updateDateTime(); @import url('https://fonts.googleapis.com/css?family=Poppins:500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    
+}
+
+html,
+body {
+    overflow-x: hidden;
+     margin: 0;
+    padding: 0;
+    width: 100%;
+    
+    
+    /* To prevent Horizontal scroll */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* To scrolling animation */
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5em 5em;
+    display: flex;
+    flex-direction: column;   /* THIS makes text appear above nav */
+    align-items: center;
+    z-index: 99999;
+
+    background: rgba(0, 53, 73, 0.6); /* transparent blue */
+    backdrop-filter: blur(5px); /* glass effect */
+    /* Header shld be above everything */
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:10px;
+}
+
+.jabatan-name{
+    font-size:1.7em;
+    font-weight:600;
+    line-height:1.2;
+    text-align:center;
+}
+
+#header .logo {
+    color: #002431;
+    font-weight: 800;
+    font-size: 2.5em;
+    text-decoration: none;
+    /* To prevent Underline */
+}
+
+#header ul {
+    display: flex;
+    /* To get elements in row */
+    justify-content: space-around;
+    align-items: center;
+}
+
+#header ul li {
+    list-style: none;
+    /* To Remove dot */
+    margin: 0px 20px;
+}
+
+#header ul li a {
+    text-decoration: none;
+    /* To prevent Underline */
+    padding: 6px 15px;
+    color: white;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+#header ul li a:hover,
+#header ul li a.active {
+    background: white;
+    color: #003549;
+}
+
+/* Logo image size */
+#header .logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+#touch{
+    position:absolute;
+    bottom:70px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:1.6em;
+    letter-spacing:3px;
+    color:white;
+    font-weight:500;
+    animation: blink 2s infinite;
+    z-index:60;   /* VERY IMPORTANT */
+    text-align:center;
+}
+
+@keyframes blink{
+    0%,100%{opacity:1;}
+    50%{opacity:0.4;}
+}
+
+/* The Section Body... Set it to max size of screen */
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* To blend section color with water color */
+section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+    filter: blur(1px);
+    z-index: 10;
+}
+
+/* Make all images absolute and cover whole screen */
+
+
+.top-section img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    pointer-events:none;
+}
+
+
+
+
+#rocks{
+    width: 800px;
+    height: auto;
+    bottom: 40px;
+    left: 0;
+
+    
+}
+
+
+/* Properites for th text on top section  */
+section #text span {
+    font-size: 0.6em;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 6px;
+}
+
+section #text {
+    position: absolute;
+    color: white;
+    font-size: 5vw;
+    text-align: center;
+    line-height: 0.9em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* center horizontally and vertically */
+    z-index: 50; /* higher than all background images */
+}
+
+
+/* The explore Button */
+#explore {
+    text-decoration: none;
+    /* To prevent Underline */
+    padding: 8px 25px;
+    background: white;
+    color: #003549;
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    transform: translateY(140px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    /* To move it 100px below from center */
+}
+
+#explore:hover {
+    background: #003549;
+    color: white;
+}
+
+/* Propeties of Top button */
+#top {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: #4faa2e;
+    bottom: 10%;
+    right: 5%;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-size: 25px;
+    border-radius: 50%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+
+
+/* Glass Effect */
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-Left: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    padding: 1em;
+    margin-bottom: 2%;
+}
+.glass h3 {
+    color: #003549;
+}
+
+.glass p, 
+.glass li, 
+.glass h4 {
+    color: #003549;
+}
+
+/* Properties for middle section (below water) */
+.sec {
+    position: relative;
+    background: #f5f7fa;
+    color: #003549;
+    padding: 10px 20px;
+    z-index: 50;
+    overflow: hidden;
+}
+.visi-misi-section{
+    padding: 80px 20px;
+    background: #f5f7fa;
+     margin-top: 0;
+}
+
+.section-title{
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #003549;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   GOV VISI & MISI (KIOSK UI UPGRADE)
+   RESPONSIVE + INTERACTIVE
+   NO FONT SIZE CHANGES
+========================= */
+
+
+.gov-section{
+    padding: 40px 20px 10px;   /* tighter spacing (fix empty gap) */
+    background: transparent;
+    position: relative;
+    overflow: visible;
+}
+
+/* container */
+.gov-container{
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* HEADER */
+.gov-header{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.gov-header h2{
+    color: #003549;
+    letter-spacing: 3px;
+}
+
+.gov-line{
+    width: 90px;
+    height: 3px;
+    background: linear-gradient(90deg, #0b5e8e, #4faa2e);
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+
+
+/* CARD BASE */
+.gov-card{
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px 28px;
+    border: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+
+    /* smooth feel */
+    transition: all 0.35s ease;
+}
+
+/* subtle animated top glow */
+.gov-card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #0b5e8e, #4faa2e);
+    transition: 0.5s;
+}
+
+/* HOVER / TOUCH FEEDBACK */
+.gov-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.gov-card:hover::before{
+    left: 0;
+}
+
+/* TITLES */
+.gov-card h3{
+    color: #003549;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+/* TEXT */
+.gov-card p,
+.gov-card ul{
+    color: #333;
+    line-height: 1.8em;
+}
+
+/* LIST */
+.gov-card ul{
+    padding-left: 20px;
+}
+
+/* ICON EFFECT (optional but subtle professional feel) */
+.gov-card h3::after{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #0b5e8e;
+    margin-top: 6px;
+}
+
+/* MOBILE OPTIMIZATION */
+@media screen and (max-width: 768px){
+    .gov-section{
+        padding: 25px 15px 5px;
+    }
+
+    .gov-card{
+        padding: 20px;
+    }
+}
+.gov-footer{
+    background: #0a1a2f;
+    color: #ffffff;
+    margin-top: 60px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* MAIN GRID */
+.gov-footer-container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+}
+
+/* HEADINGS */
+.gov-footer-col h3{
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.gov-footer-col h4{
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-left: 3px solid #4faa2e;
+    padding-left: 10px;
+}
+
+/* TEXT */
+.gov-footer-col p{
+    font-size: 0.95em;
+    line-height: 1.7em;
+    opacity: 0.9;
+}
+
+/* LINKS */
+.gov-footer-col ul{
+    list-style: none;
+    padding: 0;
+}
+
+.gov-footer-col ul li{
+    margin-bottom: 10px;
+}
+
+.gov-footer-col ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95em;
+    opacity: 0.85;
+    transition: 0.2s;
+}
+
+.gov-footer-col ul li a:hover{
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* BOTTOM BAR */
+.gov-footer-bottom{
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+    padding: 15px;
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px){
+    .gov-footer-container{
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+}
+
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Properties for text content */
+.sec h2 {
+    font-family: 'Poppins', sans-serif; /* formal sans-serif */
+    font-weight: 800; /* bold for emphasis */
+    font-size: 4em; /* increase size for "Selamat Datang" */
+    color: #003549;
+    text-align: center;
+    line-height: 1.2em;
+    margin-bottom: 30px;
+}
+
+.sec #name {
+    font-family: 'Poppins', sans-serif; /* formal sans-serif */
+    font-weight: 500; /* medium weight */
+    font-size: 1.5em; /* smaller than main greeting */
+    color: white;
+    text-align: center;
+    line-height: 1.4em;
+}
+
+.sec h3 {
+    font-size: 1.8em;
+    margin: 2%;
+    font-family: 'Poppins', sans-serif; 
+    color: #003549;
+}
+
+.sec h4 {
+    font-size: 1.2em;
+    text-decoration: underline;
+    font-weight: 600;
+    color: #003549;
+}
+
+.sec p {
+    margin: 10px 20px 40px;
+    font-family: 'Poppins', sans-serif; /* Body text use Poppins for clarity */
+    color: #003549;
+    font-weight: 400; 
+}
+
+.sec ul {
+    margin: 0 5%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* normal for body text */
+    color: #003549;
+}
+
+.sec ul li {
+    margin: 2%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* normal for body text */
+    color: #003549;
+}
+
+
+/* Make all fishes image as absolute.. To overlap with background */
+.fishes {
+    position: absolute;
+    opacity: 0.8;
+}
+
+/* Properties for each fish and sea bed*/
+#fish1 {
+    top: 0%;
+}
+
+#fish2 {
+    top: 32%;
+}
+
+#fish3 {
+    top: 60%;
+}
+
+#fish4 {
+    top: 87%;
+}
+
+#seabed {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: 1;
+}
+.top-section{
+    position: relative;
+    overflow: hidden;
+}
+
+/* ALL background images */
+.top-section img{
+    z-index: 1;
+}
+.bubbles{
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+.bubbles img{
+    position: absolute;
+    width:40%;
+    height:40%;
+    opacity: 0.25;
+    animation: floatLeaf 10s linear infinite;
+}
+.bubbles img:nth-child(1){
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.bubbles img:nth-child(2){
+    left: 55%;
+    top: 40%;
+    animation-delay: 2s;
+}
+
+.bubbles img:nth-child(3){
+    left: 80%;
+    top: 70%;
+    animation-delay: 4s;
+}
+.bubbles img:nth-child(1){
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.bubbles img:nth-child(2){
+    left: 55%;
+    top: 40%;
+    animation-delay: 2s;
+}
+
+.bubbles img:nth-child(3){
+    left: 80%;
+    top: 70%;
+    animation-delay: 4s;
+}
+
+/* text */
+#text, #touch, #explore{
+    z-index: 5;
+    position: absolute;
+}
+
+/* bubbles MUST be above background but below text */
+.sea-life{
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.undersea {
+    position: absolute;
+    opacity: 1;
+}
+
+#sea1 {
+    top: 10%;
+    left: 1%;
+    width: 20%;
+}
+
+#sea2 {
+    top: 16%;
+    right: 1%;
+    width: 10%;
+}
+
+#sea3 {
+    top: 40%;
+    left: 0;
+    width: 12%;
+}
+
+#sea4 {
+    top: 50%;
+    right: 0;
+    width: 12%;
+}
+
+#sea5 {
+    top: 70%;
+    left: 1%;
+    width: 10%;
+}
+
+#sea6 {
+    top: 75%;
+    right: 2%;
+    width: 6%;
+}
+
+#sea7 {
+    top: 90%;
+    right: 70%;
+    width: 10%;
+}
+
+#sea8 {
+    bottom: 0;
+    left: 55%;
+    width: 10%;
+    z-index: 100;
+}
+
+
+  
+
+.gov-card.active .card-details{
+    max-height: 300px;
+}
+
+/* GRID */
+.gov-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+.gov-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ICON + TITLE */
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.card-top i {
+    font-size: 22px;
+    color: #1e3a8a;
+}
+
+/* SHORT TEXT */
+.short {
+    margin-top: 10px;
+    color: #555;
+}
+
+/* HIDDEN DETAILS (ACCORDION) */
+.card-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+    margin-top: 10px;
+}
+
+.gov-card.active .card-details {
+    max-height: 200px;
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Properties for mobile */
+@media screen and (max-width: 650px) {
+
+    #header {
+        padding: 1em 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    #header ul {
+        padding: 0.5em;
+    }
+
+    section #text {
+        font-size: 20vw;
+        /* Adjust text size acc to screen size */
+    }
+
+    /* Using contian to make img fit mobile screen size */
+    /* height and width chnages size and position */
+    section img#cloud {
+        object-fit: contain;
+        height: 600px;
+        width: 600px;
+    }
+
+    section img#bird1 {
+    width: 200px !important;
+    height: auto !important; /* maintains aspect ratio */
+    object-fit: contain !important;
+}
+
+.service-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+    section img#bird2 {
+        object-fit: contain;
+        height: 750px;
+        width: 500px;
+    }
+
+    /* Adjust text content acc to screen size */
+    .sec ul li {
+        margin: 20px;
+    }
+
+    .sec ul {
+        margin: 0px 0px;
+    }
+
+    .sec h3 {
+        font-size: 1.5em;
+        margin: 20px 0px;
+    }
+
+    .sec p {
+        margin: 1% 4%;
+    }
+
+    #seabed {
+        object-fit: contain;
+        left: 0;
+        width: 750px;
+    }
+    .service-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+    .glass {
+    background: white;
+    color: #003549;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.glass:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+.glass h3 {
+    color: #003549;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    border-left: 5px solid #085a7a;
+    padding-left: 10px;
+}
+.glass ul {
+    padding-left: 20px;
+}
+.content-wrapper{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+
+
+    #sea1 {
+        top: 7%;
+        width: 40%;
+    }
+
+    #sea2 {
+        top: 25%;
+        width: 20%;
+    }
+
+    #sea3 {
+        top: 42%;
+        width: 25%;
+    }
+
+    #sea4 {
+        top: 52%;
+        width: 25%;
+    }
+
+    #sea5 {
+        top: 72%;
+        left: 1%;
+        width: 20%;
+    }
+
+    #sea6 {
+        top: 80%;
+        right: 2%;
+        width: 15%;
+    }
+
+    #sea7 {
+        top: 96%;
+        left: 1%;
+        width: 20%;
+    }
+
+    #sea8 {
+        left: 50%;
+        width: 15%;
+    }
+}
+
+/* PERKHIDMATAN PAGE */
+
+.perkhidmatan-section {
+    width: 100%;
+    min-height: 130vh;
+    margin: 0;
+    padding: 60px 0 40px;
+    background: #ffffff;
+    display: block;
+}
+
+.perkhidmatan-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.perkhidmatan-grid {
+    display: flex;
+    gap: 25px;
+
+    overflow-x: auto;           /* IMPORTANT */
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch; /* smooth iOS swipe */
+    touch-action: pan-x;               /* allow horizontal swipe */
+
+    padding: 20px 10px;
+    margin-top: 10px;
+
+    cursor: grab;
+    scroll-padding-left: 10px;
+    scroll-padding-right: 10px;
+}
+.perkhidmatan-section,
+.perkhidmatan-container {
+    box-sizing: border-box;
+}
+.perkhidmatan-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.perkhidmatan-section .gov-line {
+    background: linear-gradient(90deg, #ffffff, #4faa2e);
+}
+
+.perkhidmatan-card {
+    min-width: 300px;
+    max-width: 320px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 18px;
+    padding: 18px;
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.perkhidmatan-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(120deg, #4faa2e, #0b5e8e, transparent);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+
+.perkhidmatan-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,53,73,0.15);
+}
+.perkhidmatan-section .gov-header {
+    margin-bottom: 10px; /* was 25px+ before indirectly */
+}
+.perkhidmatan-section .gov-header h2 {
+    color: #003549;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    animation: titleGlow 2.5s ease-in-out infinite;
+}
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(255,255,255,0.4),
+                     0 0 10px rgba(79,170,46,0.4);
+    }
+
+    50% {
+        text-shadow: 0 0 15px rgba(255,255,255,0.8),
+                     0 0 25px rgba(79,170,46,0.8),
+                     0 0 35px rgba(0,53,73,0.6);
+    }
+}
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(255,255,255,0.4),
+                     0 0 10px rgba(79,170,46,0.4);
+    }
+
+    50% {
+        text-shadow: 0 0 15px rgba(255,255,255,0.8),
+                     0 0 25px rgba(79,170,46,0.8),
+                     0 0 35px rgba(0,53,73,0.6);
+    }
+}
+
+/* Allow normal images inside cards */
+.perkhidmatan-card img,
+.service-img {
+    position: relative !important;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    pointer-events: none;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+.perkhidmatan-section .perkhidmatan-card h3,
+.perkhidmatan-section .perkhidmatan-card p,
+.perkhidmatan-section .perkhidmatan-card li {
+    color: #003549 !important;
+    position: relative;
+    z-index: 2;
+}
+.perkhidmatan-section .service-details p,
+.perkhidmatan-section .service-details li {
+    color: #333 !important;
+}
+
+/* HEADER */
+.service-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+}
+
+.service-header h3{
+font-size:20px;
+
+}
+
+/* ARROW ICON */
+.service-header i{
+transition:0.3s;
+}
+.service-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+    
+}
+.service-header h3 {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* OPEN STATE */
+.perkhidmatan-card.active .service-details {
+    max-height: 500px; /* big enough */
+    opacity: 1;
+    margin-top: 10px;
+    transform: translateY(0);
+}
+
+.perkhidmatan-card.active {
+    background: rgba(79,170,46,0.15);
+    border: 1px solid rgba(79,170,46,0.6);
+}
+
+@media (max-width: 768px) {
+    .perkhidmatan-card {
+        min-width: 85%;
+    }
+}
+
+
+.perkhidmatan-card.active .service-header i{
+transform:rotate(180deg);
+}
+.toggle-btn {
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color: #003549;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+.perkhidmatan-card.active .toggle-btn {
+    transform: rotate(90deg) scale(1.1);
+}
+.service-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    padding: 8px 0;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.carousel-controls button {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.carousel-controls button:hover {
+    background: #4faa2e;
+}
+
+.section-smoke {
+    position: absolute;
+    bottom: -80px; /* IMPORTANT: overlap into next section */
+    left: 0;
+    width: 100%;
+    height: 200px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* SMOKE LAYERS */
+.section-smoke::before,
+.section-smoke::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    left: -50%;
+    top: 0;
+
+    background: radial-gradient(circle at 30% 50%, rgba(15,42,61,0.6), transparent 60%),
+                radial-gradient(circle at 70% 50%, rgba(15,42,61,0.5), transparent 60%);
+
+    filter: blur(60px);
+    animation: smokeFlow 12s infinite linear;
+}
+
+.section-smoke {
+    opacity: 0.9;
+}
+
+.section-smoke::after {
+    animation-delay: 4s;
+    opacity: 0.6;
+}
+
+@keyframes smokeFlow {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10%); }
+    100% { transform: translateX(0); }
+}
+
+.pengumuman-section {
+    width: 100%;
+    min-height: 100vh;
+    background: #f5f7fa;
+    padding: 70px 20px;
+}
+
+/* container */
+.pengumuman-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* GRID */
+.pengumuman-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* CARD */
+.pengumuman-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* hover effect */
+.pengumuman-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.pengumuman-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.pengumuman-content {
+    padding: 18px;
+}
+
+.pengumuman-content h3 {
+    font-size: 1.1em;
+    color: #003549;
+    margin-bottom: 10px;
+}
+
+.pengumuman-content p {
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6em;
+}
+
+/* DATE TAG */
+.pengumuman-content span {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.85em;
+    color: white;
+    background: #0b5e8e;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* hover overlay effect */
+.pengumuman-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,53,73,0.15), transparent);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.pengumuman-card:hover::after {
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .pengumuman-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .pengumuman-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================= MAP SECTION IMPROVEMENT ========================= */ 
+.peta-section {
+    width: 100%;
+    min-height: 150vh;
+    background: #f5f7fa;
+    padding: 120px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.peta-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.peta-layout {
+    display: flex;
+    flex-direction: row;   /* SIDE BY SIDE */
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.peta-map {
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+    border: 2px solid rgba(79,170,46,0.3);
+    flex: 2;
+    min-width: 65%;
+}
+
+/* keep iframe full width under search */
+.peta-map iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
+}
+
+.peta-map:hover iframe {
+    transform: scale(1.03);
+}
+
+.peta-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .peta-layout {
+        flex-direction: column;
+    }
+
+    .peta-map,
+    .peta-info {
+        min-width: 100%;
+    }
+}
+.peta-map::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 2px;
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+}
+.peta-actions {
+    display: flex;
+    flex-direction: row;   /* SAME LINE */
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;       /* allows mobile wrapping */
+}
+
+.peta-actions input {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 16px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+}
+
+/* BUTTON STYLE */
+.peta-actions button {
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .peta-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .peta-actions input,
+    .peta-actions button {
+        width: 100%;
+    }
+}
+
+/* HOVER EFFECT */
+.peta-actions button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* CLICK EFFECT */
+.peta-actions button:active {
+    transform: scale(0.97);
+}
+
+/* GLOW ANIMATION */
+.peta-actions button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transform: skewX(-25deg);
+}
+
+.peta-actions button:hover::after {
+    animation: shine 0.8s ease;
+}
+
+@keyframes shine {
+    100% {
+        left: 200%;
+    }
+}
+
+.peta-card {
+    background: white;
+    padding: 12px 14px;   /* smaller inner space */
+    margin-bottom: 10px;  /* tighter spacing */
+    border-radius: 12px;
+    color: #003549;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.peta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.peta-card h3 {
+    color: #0b5e8e;
+    font-size: 1em;  
+}
+
+.peta-card p{
+    font-size: 0.9em;     /* smaller text */
+    line-height: 1.4em;
+}
+#map {
+    width: 100%;
+    height: 700px;
+    border-radius: 18px;
+}
+
+.peta-map {
+    flex: 2;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+
+    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+    border: 2px solid rgba(79,170,46,0.3);
+
+    /* 👇 REDUCED HEIGHT CONTAINER */
+    max-height: 420px;
+}
+
+.peta-map iframe {
+    width: 100%;
+    height: 420px;   /* 👈 smaller map */
+    border: 0;
+    transition: transform 0.5s ease;
+}
+
+.peta-actions-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* mobile safe */
+    margin: 20px 0 30px;
+}
+
+/* SEARCH BAR */
+.map-tools{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-tools input{
+    padding: 10px 14px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 250px;
+    color: black;          /* text you type */
+    background: white;
+}
+
+.map-tools button{
+    padding: 10px 16px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    color: black;
+}.map-tools button:hover{
+    background: #333;
+}
+
+
+
+.map-tools input::placeholder{
+    color: rgba(0,0,0,0.6);
+}
+
+/* =========================
+   FAQ KIOSK UPGRADE
+========================= */
+
+.faq-section{
+    width: 100%;
+    min-height: 200vh;
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #eef3f8, #dfe9f1);
+}
+
+/* container */
+.faq-container{
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* list */
+.faq-grid{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* card */
+.faq-item{
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* hover */
+.faq-item:hover{
+    transform: translateY(-4px);
+}
+
+/* QUESTION */
+.faq-question{
+    padding: 20px 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+    color: white;
+}
+
+.faq-question h3{
+    font-size: 1.1em;
+    color: white;
+}
+
+.faq-question span{
+    font-size: 1.6em;
+    transition: 0.3s;
+}
+
+/* ANSWER */
+.faq-answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background: #ffffff;
+}
+
+/* TEXT CONTENT */
+.faq-answer-content{
+    padding: 20px 25px;
+    color: #333;
+    line-height: 1.7em;
+
+    max-height: 300px;        /* 👈 IMPORTANT */
+    overflow-y: auto;         /* 👈 SCROLL HERE */
+}
+
+/* scrollbar */
+.faq-answer-content::-webkit-scrollbar{
+    width: 6px;
+}
+
+.faq-answer-content::-webkit-scrollbar-thumb{
+    background: linear-gradient(#0b5e8e, #4faa2e);
+    border-radius: 10px;
+}
+
+/* ACTIVE */
+.faq-item.active .faq-answer{
+    max-height: 400px;  /* 👈 allow expansion */
+}
+
+.faq-item.active .faq-question span{
+    transform: rotate(45deg);
+}
+
+/* glow effect when open */
+.faq-item.active{
+    border: 1px solid rgba(79,170,46,0.5);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+    .faq-question h3{
+        font-size: 0.95em;
+    }
+
+    .faq-answer-content{
+        max-height: 250px;
+    }
+}
+.faq-question:active{
+    transform: scale(0.98);
+}
+
+/* BORANG CARD KIOSK STYLE */
+.borang-card{
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    transition: 0.3s;
+}
+
+.borang-card:hover{
+    transform: translateY(-8px);
+}
+
+/* PDF ICON AREA */
+.borang-preview{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 280px;
+    background: linear-gradient(135deg, #f5f7fa, #e1e8ef);
+}
+
+.borang-preview img{
+    width: 90px;
+    opacity: 0.8;
+}
+
+/* OVERLAY */
+.borang-overlay{
+    padding: 20px;
+    background: white;
+}
+
+.borang-overlay h3{
+    color: #003549;
+    font-size: 1.05em;
+    margin-bottom: 12px;
+}
+
+/* BUTTONS */
+.borang-actions{
+    display: flex;
+    gap: 10px;
+}
+
+.borang-actions a{
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: 0.3s;
+    color: white;
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
+}
+
+.borang-actions a:hover{
+    transform: scale(1.05);
+    background: #003549;
+}
+
+nav ul li a {
+    transition: 0.3s;
+}
+
+/* ACTIVE MENU */
+nav ul li a.active {
+    color: #00e0ff;
+    font-weight: bold;
+    border-bottom: 2px solid #00e0ff;
+}
+
+main {
+    flex: 1;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* base icon style */
+.footer-icons .icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* hover animation */
+.footer-icons .icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 0 15px rgba(0,224,255,0.6);
+}
+
+/* ripple glow effect */
+.footer-icons .icon::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,224,255,0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.4s;
+}
+
+.footer-icons .icon:hover::after {
+    transform: scale(2);
+    opacity: 0;
+}
+
+.footer-icons .instagram:hover {
+    color: #E1306C;
+}
+
+.footer-icons .map:hover {
+    color: #00e0ff;
+}
+
+.footer-icons .phone:hover {
+    color: #25D366;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0,224,255,0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(0,224,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,224,255,0); }
+}
+
+.footer-icons .icon {
+    animation: pulse 3s infinite;
+}
+
+.phone-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-modal-content {
+    background: #0a1a2f;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    width: 300px;
+    box-shadow: 0 0 20px rgba(0,224,255,0.4);
+    animation: popIn 0.3s ease;
+}
+
+.phone-modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    position: absolute;
+    margin-left: 120px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #00e0ff;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+
