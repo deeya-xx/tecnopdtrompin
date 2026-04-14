@@ -41,24 +41,28 @@
     </div>
   </div>
 
-      <!-- HAMBURGER BUTTON (MOBILE ONLY) -->
-  <div id="menu-toggle">
-      ☰
-  </div>
+     <!-- HAMBURGER BUTTON (MOBILE ONLY) -->
+  <div id="menu-toggle">☰</div>
+<div id="overlay"></div>
 
-      
-  <!-- MOBILE SIDEBAR -->
-<div id="mobile-sidebar">
+<aside id="mobile-sidebar">
+    <div class="sidebar-header">
+        <h3>MENU UTAMA</h3>
+        <p>Sistem Maklumat Rasmi</p>
+    </div>
     <ul>
-        <li><a href="#utama">Utama</a></li>
-        <li><a href="#perkhidmatan">Perkhidmatan</a></li>
-        <li><a href="#pengumuman">Pengumuman</a></li>
-        <li><a href="#peta">Peta</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#borang">Borang</a></li>
-        <li><a href="#footer">Hubungi</a></li>
+        <li><a href="#utama">🏠 Utama</a></li>
+        <li><a href="#perkhidmatan">🛠️ Perkhidmatan</a></li>
+        <li><a href="#pengumuman">🔔 Pengumuman</a></li>
+        <li><a href="#peta">🗺 Peta</a></li>
+        <li><a href="#faq">💬 FAQ</a></li>
+        <li><a href="#borang">📝 Borang</a></li>
+        <li><a href="#footer">☏ Hubungi</a></li>
     </ul>
-</div>
+<div class="sidebar-footer">
+        <p>© Sistem Rasmi Kerajaan</p>
+    </div>
+</aside>
 
 
 </header>
@@ -655,12 +659,51 @@ BORANG PAGE (DOWNLOAD FORMS)
 
 
 <script>
-const menuToggle = document.getElementById("menu-toggle");
 const sidebar = document.getElementById("mobile-sidebar");
+const toggle = document.getElementById("menu-toggle");
+const overlay = document.getElementById("overlay");
+const links = document.querySelectorAll("#mobile-sidebar a");
 
-menuToggle.onclick = () => {
-    sidebar.classList.toggle("active");
+// OPEN / CLOSE
+function openMenu(){
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+}
+
+function closeMenu(){
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+toggle.onclick = () => {
+    sidebar.classList.contains("active") ? closeMenu() : openMenu();
 };
+
+overlay.onclick = closeMenu;
+
+// AUTO CLOSE ON CLICK
+links.forEach(link => {
+    link.onclick = closeMenu;
+});
+
+// ACTIVE SECTION (simple + stable)
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (scrollY >= top) current = section.id;
+    });
+
+    links.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
+});
 </script>
     
 </body>
