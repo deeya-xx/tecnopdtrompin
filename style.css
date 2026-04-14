@@ -438,32 +438,35 @@ section {
         padding: 20px;
     }
 }
+
 .gov-footer{
     background: #0b2f3a;
     color: #ffffff;
-    margin-top: 0;
-    padding-bottom: 0;
+    padding: 40px 20px 20px;
     font-family: 'Poppins', sans-serif;
 }
 
-/* MAIN GRID */
-.gov-footer-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 0 15px;
+/* MAIN CONTAINER */
+.gov-footer-container{
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+    text-align: left;
 }
 
-/* HEADINGS */
+/* COLUMN */
 .gov-footer-col h3{
-    font-size: 1.3em;
-    margin-bottom: 10px;
-    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: 12px;
 }
 
 .gov-footer-col h4{
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 10px;
     border-left: 3px solid #4faa2e;
     padding-left: 10px;
 }
@@ -471,7 +474,7 @@ section {
 /* TEXT */
 .gov-footer-col p{
     font-size: 0.95em;
-    line-height: 1.7em;
+    line-height: 1.6em;
     opacity: 0.9;
 }
 
@@ -482,56 +485,55 @@ section {
 }
 
 .gov-footer-col ul li{
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .gov-footer-col ul li a{
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.95em;
     opacity: 0.85;
     transition: 0.2s;
 }
 
 .gov-footer-col ul li a:hover{
     opacity: 1;
-    text-decoration: underline;
-    color: #00e0ff;
-    padding-left: 5px;
+    color: #4faa2e;
+    padding-left: 6px;
 }
 
 /* BOTTOM BAR */
 .gov-footer-bottom{
-    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.15);
     text-align: center;
-    padding: 15px;
+    padding-top: 15px;
     font-size: 0.85em;
     opacity: 0.8;
 }
 
-/* MOBILE */
-@media screen and (max-width: 768px){
+@media (max-width: 768px){
+
     .gov-footer-container{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;  /* stack vertically */
+        text-align: left;
+        gap: 20px;
+    }
+
+    .gov-footer{
+        padding: 30px 15px 15px;
+    }
+
+    .gov-footer-col h3,
+    .gov-footer-col h4{
         text-align: left;
     }
 }
-
 
 .content-wrapper {
     max-width: 1200px;
     margin: auto;
     text-align: center;
 }
-
-
-
-
-
-
-
-
-
 
 
 
