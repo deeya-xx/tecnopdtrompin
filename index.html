@@ -8,7 +8,6 @@
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="animation.css">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <script defer src="action.js"></script>
@@ -42,24 +41,34 @@
     </ul>
 </aside>
 
-<!-- TOP -->
+<!-- ================= TOP (ORIGINAL IDEA KEKAL) ================= -->
 <section class="top-section" id="utama">
 
+    <div class="sea-life">
+        <div class="bubbles">
+            <img src="images/sea/daun.png">
+            <img src="images/sea/daun.png">
+            <img src="images/sea/daun.png">
+        </div>
+    </div>
+
     <img src="images/land/sky.png" id="sky">
+    <img src="images/land/sun.png" id="sun">
     <img src="images/land/mountains.png" id="mountains">
     <img src="images/land/cloud.png" id="cloud">
 
-    <div id="text">
-        Selamat Datang<br>
-        <span>PDT Rompin</span>
-    </div>
+    <h1 id="text">
+        <span>Selamat Datang ke</span><br>
+        PDT Rompin
+    </h1>
 
     <p id="datetime"></p>
+
     <a href="#sec" id="explore">Lihat Maklumat</a>
 
 </section>
 
-<!-- CONTENT -->
+<!-- ================= CONTENT (KEKAL STRUCTURE) ================= -->
 <main id="sec">
 
 <section id="perkhidmatan" class="section">
@@ -75,20 +84,18 @@
 
 <section id="peta" class="section">
 
-    <div class="map-tools">
-        <input id="mapSearch" placeholder="Cari lokasi">
-        <button onclick="searchLocation()">Cari</button>
-    </div>
+    <input id="mapSearch" placeholder="Cari lokasi">
+    <button onclick="searchLocation()">Cari</button>
 
     <iframe id="map"
-    src="https://www.google.com/maps?q=Rompin&output=embed"></iframe>
+        src="https://www.google.com/maps?q=Rompin&output=embed"></iframe>
 
 </section>
 
 <section id="faq" class="section">
     <div class="faq-item">
-        <div class="faq-question">Apa itu PDT Rompin?</div>
-        <div class="faq-answer">Pejabat Daerah dan Tanah Rompin.</div>
+        <div class="faq-question">Soalan</div>
+        <div class="faq-answer">Jawapan</div>
     </div>
 </section>
 
