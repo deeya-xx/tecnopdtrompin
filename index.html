@@ -1,285 +1,216 @@
-// =======================
-// PARALLAX ELEMENTS
-// =======================
-const time = document.getElementsByClassName('bubbles')[0];
-
-let fish2move = 100;
-let fish3move = 900;
-let fish4move = 1200;
-
-const text = document.getElementById("text");
-const cloud = document.getElementById("cloud");
-const bird1 = document.getElementById("bird1");
-const bird2 = document.getElementById("bird2");
-const explore = document.getElementById("explore");
-const header = document.getElementById("header");
-const sun = document.getElementById("sun");
-const forest = document.getElementById("forest");
-const mountains = document.getElementById("mountains");
-
-// OPTIONAL elements
-const splash = document.getElementById("splash");
-const fish1 = document.getElementById("fish1");
-const fish2 = document.getElementById("fish2");
-const fish3 = document.getElementById("fish3");
-const fish4 = document.getElementById("fish4");
-const sky = document.getElementById("sky");
-
-// =======================
-// MOBILE ADJUSTMENT
-// =======================
-if (screen.width < 400 && time) {
-    time.style.setProperty('--transform-duration', '15s');
-    time.style.setProperty('--transform-y', '-700vh');
-
-    fish2move = 1680;
-    fish3move = 3000;
-    fish4move = 4300;
-}
-
-// =======================
-// PARALLAX SCROLL (FIX SMOOTH)
-// =======================
-let ticking = false;
-
-window.addEventListener('scroll', function () {
-
-    if (!ticking) {
-        requestAnimationFrame(() => {
-
-            let value = window.scrollY;
-
-            if (text) text.style.top = 50 + value * -0.2 + '%';
-            if (cloud) cloud.style.left = value * 2 + 'px';
-
-            if (bird1) {
-                bird1.style.top = value * 0.1 + 'px';
-                bird1.style.left = value * 1 + 'px';
-            }
-
-            if (bird2) {
-                bird2.style.top = value * -0.1 + 'px';
-                bird2.style.left = value * -2 + 'px';
-            }
-
-            if (explore) explore.style.marginTop = value * 1.5 + 'px';
-
-            if (forest) forest.style.top = value * 0.4 + 'px';
-            if (sky) sky.style.top = value * 0.25 + 'px';
-            if (mountains) mountains.style.top = value * 0.25 + 'px';
-
-            if (sun) sun.style.top = value * 1 + 'px';
-
-            if (splash && value < 380) {
-                splash.style.top = 20 + value * -0.3 + 'px';
-            }
-
-            if (fish1) fish1.style.right = (value - 100) + 'px';
-            if (fish2) fish2.style.left = (value - fish2move) + 'px';
-            if (fish3) fish3.style.right = (value - fish3move) + 'px';
-            if (fish4) fish4.style.left = (value - fish4move) + 'px';
-
-            ticking = false;
-
-        });
-
-        ticking = true;
-    }
-
-});
-
-// =======================
-// SOCIAL LINKS (SAFE)
-// =======================
-const links = document.getElementsByClassName("social-media");
-
-function openlink(x) {
-    const urls = [
-        "https://www.instagram.com/_.vini._02_/",
-        "https://www.linkedin.com/in/vineet-kumar-gupta-2833ab196/",
-        "https://github.com/VineetKumar02",
-        "https://vineet-portfolio-site.netlify.app/"
-    ];
-
-    if (urls[x - 1]) {
-        window.open(urls[x - 1], "_blank");
-    }
-}
-
-for (let i = 0; i < links.length; i++) {
-    links[i].addEventListener("click", () => openlink(i + 1));
-}
-
-// =======================
-// DATE & TIME (FIX)
-// =======================
-function updateDateTime() {
-    const now = new Date();
-
-    const options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    };
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Explore the interactive Halloween Party project, showcasing responsive design, animations, and web development techniques.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/pdtrompin.jpg">
+
+    <title>Pejabat Daerah dan Tanah Rompin</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+
+    <!-- ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Parallax Scroll Site">
+    <meta property="og:description"
+        content="Explore the interactive Halloween Party project.">
+    <meta property="og:image" content="https://drive.google.com/uc?id=1GFbBHTi7w8weRVqLJ7bkofezEEGg4U30">
+    <meta property="og:type" content="website">
+</head>
+
+<body>
+
+<!-- =======================
+HEADER
+======================= -->
+<header id="header">
+
+    <div class="header-left">
+        <a href="#" class="logo">
+            <img src="images/logo3.png" alt="PDT Logo">
+        </a>
+        <div class="jabatan-name">
+            Pejabat Daerah dan Tanah Rompin
+        </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="menu-toggle">☰</div>
+    <div id="overlay"></div>
+
+    <aside id="mobile-sidebar">
+        <div class="sidebar-header">
+            <h3>MENU UTAMA</h3>
+            <p>Sistem Maklumat Rasmi</p>
+        </div>
+
+        <ul>
+            <li><a href="#utama">🏠 Utama</a></li>
+            <li><a href="#perkhidmatan">🛠️ Perkhidmatan</a></li>
+            <li><a href="#pengumuman">🔔 Pengumuman</a></li>
+            <li><a href="#peta">🗺 Peta</a></li>
+            <li><a href="#faq">💬 FAQ</a></li>
+            <li><a href="#borang">📝 Borang</a></li>
+            <li><a href="#footer">☏ Hubungi</a></li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <p>© Sistem Rasmi Kerajaan</p>
+        </div>
+    </aside>
+
+</header>
+
+<!-- =======================
+PARALLAX SECTION
+======================= -->
+<section class="top-section" id="utama">
+
+    <div class="sea-life">
+        <div class="bubbles">
+            <img src="images/sea/daun.png">
+            <img src="images/sea/daun.png">
+            <img src="images/sea/daun.png">
+        </div>
+    </div>
+
+    <img src="images/land/sky.png" id="sky" class="wallpaper">
+    <img src="images/land/sun.png" id="sun">
+    <img src="images/land/mountains.png" id="mountains" class="wallpaper">
+    <img src="images/land/cloud.png" id="cloud">
+
+    <h1 id="text">
+        <span>Selamat Datang ke</span><br>
+        Pejabat Daerah dan Tanah Rompin
+    </h1>
+
+    <p id="datetime"></p>
+    <p id="touch">Sila Sentuh Skrin Untuk Masuk ke Menu Utama</p>
+
+    <img src="images/land/waterfall.png" id="forest">
+    <img src="images/land/bird1.png" id="bird1">
+    <img src="images/land/bird2.png" id="bird2">
 
-    const date = now.toLocaleDateString('ms-MY', options);
-    const timeStr = now.toLocaleTimeString('ms-MY');
+    <a href="#sec" id="explore">Lihat Maklumat</a>
 
-    const el = document.getElementById("datetime");
-    if (el) {
-        el.innerHTML = date + " | " + timeStr;
-    }
-}
+</section>
 
-// RUN
-setInterval(updateDateTime, 1000);
-updateDateTime();
+<!-- =======================
+MAIN CONTENT
+======================= -->
+<main class="sec" id="sec">
 
-// =======================
-// AUTO SCROLL (FIX)
-// =======================
-let sections = ["peta", "pengumuman", "perkhidmatan", "sec"];
-let index = 0;
-let autoScroll = true;
+    <!-- VISI MISI -->
+    <section class="gov-section">
 
-const navLinks = document.querySelectorAll("#mobile-sidebar a");
+        <div class="gov-container">
 
-setInterval(() => {
+            <div class="gov-header">
+                <h2>VISI & MISI</h2>
+                <div class="gov-line"></div>
+            </div>
 
-    if (!autoScroll) return;
+            <div class="gov-grid">
 
-    index = (index + 1) % sections.length;
+                <div class="gov-card">
+                    <h3>VISI</h3>
+                    <p>
+                        Menjadikan Pejabat Daerah dan Tanah Rompin sebagai Peneraju
+                        Kecemerlangan Pentadbiran.
+                    </p>
+                </div>
 
-    const el = document.getElementById(sections[index]);
+                <div class="gov-card">
+                    <h3>MISI</h3>
+                    <p>
+                        Memberikan perkhidmatan cemerlang, berkualiti dan berintegriti.
+                    </p>
+                </div>
 
-    if (el) {
-        el.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+            </div>
 
-        navLinks.forEach(l => l.classList.remove("active"));
+        </div>
 
-        const activeLink = document.querySelector(`#mobile-sidebar a[href="#${sections[index]}"]`);
-        if (activeLink) activeLink.classList.add("active");
-    }
+    </section>
 
-}, 20000);
+    <!-- PERKHIDMATAN -->
+    <section class="perkhidmatan-section" id="perkhidmatan">
 
-// STOP auto scroll bila klik
-navLinks.forEach(link => {
-    link.addEventListener("click", function () {
-        autoScroll = false;
+        <div class="gov-header">
+            <h2>PERKHIDMATAN</h2>
+            <div class="gov-line"></div>
+        </div>
 
-        navLinks.forEach(l => l.classList.remove("active"));
-        this.classList.add("active");
-    });
-});
+        <div class="perkhidmatan-grid">
+            <div class="perkhidmatan-card">Pengurusan Tanah</div>
+            <div class="perkhidmatan-card">Pembangunan Daerah</div>
+            <div class="perkhidmatan-card">Pentadbiran</div>
+        </div>
 
-// =======================
-// KIOSK IDLE RESET (NEW)
-// =======================
-let idleTime = 0;
+    </section>
 
-function resetKiosk() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    <!-- PENGUMUMAN -->
+    <section class="pengumuman-section" id="pengumuman">
+        <div class="gov-header">
+            <h2>PENGUMUMAN</h2>
+        </div>
 
-    autoScroll = true;
-    index = 0;
-}
+        <div class="pengumuman-grid">
+            <div class="pengumuman-card">Pengumuman 1</div>
+            <div class="pengumuman-card">Pengumuman 2</div>
+        </div>
+    </section>
 
-["click","touchstart","mousemove","keydown"].forEach(evt => {
-    window.addEventListener(evt, () => {
-        idleTime = 0;
-        autoScroll = false;
-    });
-});
+    <!-- PETA -->
+    <section class="peta-section" id="peta">
 
-setInterval(() => {
-    idleTime++;
-    if (idleTime >= 30) {
-        resetKiosk();
-        idleTime = 0;
-    }
-}, 1000);
+        <input id="mapSearch" placeholder="Cari lokasi">
+        <button onclick="searchLocation()">Cari</button>
 
-// =======================
-// PERKHIDMATAN
-// =======================
-document.addEventListener("DOMContentLoaded", function () {
+        <iframe id="map"
+            src="https://www.google.com/maps?q=Rompin&output=embed"></iframe>
 
-    const cards = document.querySelectorAll(".perkhidmatan-card");
+        <div id="qrBox"></div>
 
-    cards.forEach(card => {
+    </section>
 
-        card.addEventListener("click", function (e) {
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="faq-item">
+            <div class="faq-question">Soalan</div>
+            <div class="faq-answer">Jawapan</div>
+        </div>
+    </section>
 
-            e.stopPropagation();
+    <!-- BORANG -->
+    <section id="borang">
+        <div id="qrBoxBorang"></div>
+    </section>
 
-            const isActive = card.classList.contains("active");
+</main>
 
-            cards.forEach(c => c.classList.remove("active"));
+<!-- =======================
+FOOTER
+======================= -->
+<footer id="footer">
+    <p>© 2026 PDT Rompin</p>
+</footer>
 
-            if (!isActive) {
-                card.classList.add("active");
-            }
+<!-- =======================
+SCRIPT
+======================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="action.js"></script>
 
-            clickSound.currentTime = 0;
-            clickSound.play();
-
-            const ripple = document.createElement("span");
-            ripple.classList.add("ripple");
-
-            const rect = card.getBoundingClientRect();
-            ripple.style.left = (e.clientX - rect.left) + "px";
-            ripple.style.top = (e.clientY - rect.top) + "px";
-
-            card.appendChild(ripple);
-
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-
-        });
-
-    });
-
-});
-
-// =======================
-// SOUND
-// =======================
-const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
-
-// unlock sound (fix browser block)
-document.addEventListener("click", () => {
-    clickSound.play().catch(()=>{});
-}, { once: true });
-
-// =======================
-// FAQ
-// =======================
-document.addEventListener("DOMContentLoaded", function () {
-
-    const faqItems = document.querySelectorAll(".faq-item");
-
-    faqItems.forEach((item) => {
-        const question = item.querySelector(".faq-question");
-
-        question.addEventListener("click", () => {
-
-            faqItems.forEach((el) => {
-                if (el !== item) {
-                    el.classList.remove("active");
-                }
-            });
-
-            item.classList.toggle("active");
-        });
-    });
-
-});
+</body>
+</html>
