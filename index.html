@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PDT Rompin</title>
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="animation.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header id="header">
 
 <div class="header-left">
     <a href="#" class="logo">
         <img src="images/logo3.png">
     </a>
-    <div>
-        Pejabat Daerah dan Tanah Rompin
-    </div>
+    <div>Pejabat Daerah dan Tanah Rompin</div>
 </div>
 
 <div id="menu-toggle">☰</div>
@@ -33,6 +28,7 @@
 <aside id="mobile-sidebar">
     <ul>
         <li><a href="#utama">Utama</a></li>
+        <li><a href="#sec">Maklumat</a></li>
         <li><a href="#perkhidmatan">Perkhidmatan</a></li>
         <li><a href="#pengumuman">Pengumuman</a></li>
         <li><a href="#peta">Peta</a></li>
@@ -44,22 +40,34 @@
 
 </header>
 
-<!-- ================= SECTION ================= -->
+<!-- PARALLAX -->
 <section id="utama">
-    <h1>Selamat Datang</h1>
+    <img src="images/land/sky.png" id="sky">
+    <img src="images/land/sun.png" id="sun">
+    <img src="images/land/mountains.png" id="mountains">
+    <img src="images/land/cloud.png" id="cloud">
+
+    <h1 id="text">Selamat Datang</h1>
     <p id="datetime"></p>
+
+    <img src="images/land/waterfall.png" id="forest">
+    <img src="images/land/bird1.png" id="bird1">
+    <img src="images/land/bird2.png" id="bird2">
+
+    <a href="#sec" id="explore">Masuk</a>
+</section>
+
+<!-- CONTENT -->
+<section id="sec">
+    <h2>Maklumat</h2>
 </section>
 
 <section id="perkhidmatan">
-    <h2>Perkhidmatan</h2>
-
     <div class="perkhidmatan-card">Tanah</div>
     <div class="perkhidmatan-card">Pembangunan</div>
 </section>
 
 <section id="pengumuman">
-    <h2>Pengumuman</h2>
-
     <div class="pengumuman-grid">
         <div class="pengumuman-card">Info 1</div>
         <div class="pengumuman-card">Info 2</div>
@@ -67,8 +75,6 @@
 </section>
 
 <section id="peta">
-    <h2>Peta</h2>
-
     <input id="mapSearch" placeholder="Cari lokasi">
     <button onclick="searchLocation()">Cari</button>
 
@@ -76,22 +82,17 @@
         src="https://www.google.com/maps?q=Rompin&output=embed"></iframe>
 
     <div id="qrBox"></div>
-
     <button onclick="generateQR()">QR</button>
 </section>
 
 <section id="faq">
-    <h2>FAQ</h2>
-
     <div class="faq-item">
-        <div class="faq-question">Soalan 1</div>
+        <div class="faq-question">Soalan</div>
         <div class="faq-answer">Jawapan</div>
     </div>
 </section>
 
 <section id="borang">
-    <h2>Borang</h2>
-
     <div id="qrBoxBorang"></div>
     <button onclick="generateBorangQR()">QR Borang</button>
 </section>
@@ -100,10 +101,10 @@
     <h2>Footer</h2>
 </section>
 
-<!-- ================= LIBRARY ================= -->
+<!-- QR LIB -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<!-- ================= JS ================= -->
+<!-- JS -->
 <script src="action.js"></script>
 
 </body>
