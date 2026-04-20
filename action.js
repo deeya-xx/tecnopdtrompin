@@ -24,6 +24,23 @@ const fish2 = document.getElementById("fish2");
 const fish3 = document.getElementById("fish3");
 const fish4 = document.getElementById("fish4");
 const sky = document.getElementById("sky");
+const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
+const sidebar = document.getElementById("mobile-sidebar");
+const overlay = document.getElementById("overlay");
+const menuToggle = document.getElementById("menu-toggle");
+
+function openSidebar() {
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+}
+
+function closeSidebar() {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+menuToggle.addEventListener("click", openSidebar);
+overlay.addEventListener("click", closeSidebar);
 
 // =======================
 // MOBILE ADJUSTMENT
@@ -121,9 +138,7 @@ function updateDateTime() {
     }
 }
 
-// =======================
-// PERKHIDMATAN (FIXED)
-// =======================
+
 // =======================
 // PERKHIDMATAN (FINAL)
 // =======================
@@ -131,42 +146,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const cards = document.querySelectorAll(".perkhidmatan-card");
 
+    function closeAll() {
+        cards.forEach(c => c.classList.remove("active"));
+    }
+
+    function openCard(card) {
+        closeAll();
+        card.classList.add("active");
+
+        setTimeout(() => {
+            card.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }, 150);
+    }
+
     cards.forEach(card => {
 
+        // ✅ CLICK CARD ANYWHERE
         card.addEventListener("click", function (e) {
 
-            e.stopPropagation();
+            // ignore toggle button so it doesn't double trigger
+            if (e.target.closest(".toggle-btn")) return;
 
-            const isActive = card.classList.contains("active");
-
-            // CLOSE ALL
-            cards.forEach(c => c.classList.remove("active"));
-
-            // OPEN ONLY IF NOT ACTIVE
-            if (!isActive) {
-                card.classList.add("active");
+            if (card.classList.contains("active")) {
+                card.classList.remove("active");
+            } else {
+                openCard(card);
             }
-
-            // ===== SOUND =====
-            clickSound.currentTime = 0;
-            clickSound.play();
-
-            // ===== RIPPLE =====
-            const ripple = document.createElement("span");
-            ripple.classList.add("ripple");
-
-            const rect = card.getBoundingClientRect();
-            ripple.style.left = (e.clientX - rect.left) + "px";
-            ripple.style.top = (e.clientY - rect.top) + "px";
-
-            card.appendChild(ripple);
-
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-
         });
 
+    });
+
+    // ✅ GLOBAL BUTTON HANDLER (IMPORTANT FIX)
+    document.addEventListener("click", function (e) {
+
+        const btn = e.target.closest(".toggle-btn");
+        if (!btn) return;
+
+        const card = btn.closest(".perkhidmatan-card");
+
+        if (!card) return;
+
+        if (card.classList.contains("active")) {
+            card.classList.remove("active");
+        } else {
+            openCard(card);
+        }
     });
 
 });
@@ -188,13 +215,18 @@ function scrollRightCards() {
 
 function toggleFullscreenMap() {
     const map = document.getElementById("mapBox");
-
-    if (!map.classList.contains("fullscreen-map")) {
-        map.style.transition = "all 0.6s ease";
-    }
+    const header = document.getElementById("header");
 
     map.classList.toggle("fullscreen-map");
+
+    // optional: hide header when fullscreen
+    if (map.classList.contains("fullscreen-map")) {
+        header.style.display = "none";
+    } else {
+        header.style.display = "flex";
+    }
 }
+
 
 function openGoogleMaps() {
     window.open("https://www.google.com/maps/place/Rompin", "_blank");
@@ -209,20 +241,16 @@ function startVoiceGuide() {
     speechSynthesis.speak(msg);
 }
 
-function generateQR() {
-    const qrBox = document.getElementById("qrBox");
 
-    const url = "https://www.google.com/maps/place/Rompin";
 
-    qrBox.innerHTML = `
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(url)}">
-    `;
-}
 
-let sections = ["peta", "pengumuman", "perkhidmatan", "sec"];
+let sections = ["utama", "perkhidmatan", "pengumuman", "peta", "faq", "borang"];
 let index = 0;
 
 setInterval(() => {
+
+    if (!autoScroll) return;
+
     index = (index + 1) % sections.length;
 
     const el = document.getElementById(sections[index]);
@@ -232,11 +260,15 @@ setInterval(() => {
             behavior: "smooth",
             block: "start"
         });
+
+        navLinks.forEach(l => l.classList.remove("active"));
+
+        const activeLink = document.querySelector(`nav a[href="#${sections[index]}"]`);
+        if (activeLink) activeLink.classList.add("active");
     }
 
-}, 20000); // slower = more kiosk-like
+}, 20000);
 
-const clickSound = new Audio("https://www.soundjay.com/buttons/sounds/button-16.mp3");
 
 document.querySelectorAll(".pengumuman-card").forEach(card => {
     card.addEventListener("click", () => {
@@ -278,62 +310,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const faqItems = document.querySelectorAll(".faq-item");
 
-    faqItems.forEach((item) => {
-        const question = item.querySelector(".faq-question");
+    document.querySelectorAll(".faq-question").forEach(q => {
+    q.addEventListener("click", function () {
 
-        question.addEventListener("click", () => {
+        const item = this.parentElement;
 
-            // close all other items first
-            faqItems.forEach((el) => {
-                if (el !== item) {
-                    el.classList.remove("active");
-                }
-            });
-
-            // toggle current one
-            item.classList.toggle("active");
+        // close others
+        document.querySelectorAll(".faq-item").forEach(el => {
+            if (el !== item) el.classList.remove("active");
         });
+
+        // toggle
+        item.classList.toggle("active");
     });
+});
 
 });
 
-function generateBorangQR() {
-    let qrBox = document.getElementById("qrBoxBorang");
+function generateQR() {
+    const qrBox = document.getElementById("qrBox");
+
+    if (!qrBox) {
+        console.error("qrBox NOT FOUND");
+        return;
+    }
+
+    if (typeof QRCode === "undefined") {
+        alert("QR library not loaded");
+        return;
+    }
 
     qrBox.innerHTML = "";
 
-   const pdfUrl = "./pdf/pewartaan-kadar-cukai.pdf";
     new QRCode(qrBox, {
-        text: pdfUrl,
+        text: "https://www.google.com/maps/place/Rompin",
         width: 180,
         height: 180
     });
 }
 
+function generateBorangQR() {
+    const qrBox = document.getElementById("qrBoxBorang");
 
-setInterval(() => {
-
-    // STOP if user clicked
-    if (!autoScroll) return;
-
-    index = (index + 1) % sections.length;
-
-    const el = document.getElementById(sections[index]);
-
-    if (el) {
-        el.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-        // update nav highlight automatically
-        navLinks.forEach(l => l.classList.remove("active"));
-
-        const activeLink = document.querySelector(`nav a[href="#${sections[index]}"]`);
-        if (activeLink) activeLink.classList.add("active");
+    if (!qrBox) {
+        console.error("qrBoxBorang NOT FOUND");
+        return;
     }
 
-}, 20000);
+    if (typeof QRCode === "undefined") {
+        alert("QR library not loaded");
+        return;
+    }
+
+    qrBox.innerHTML = "";
+
+    new QRCode(qrBox, {
+        text: window.location.origin + "/pdf/pewartaan-kadar-cukai.pdf",
+        width: 180,
+        height: 180
+    });
+}
+
 
 
 // =======================
@@ -379,6 +416,7 @@ let pengumumanIndex = 0;
 function scrollPengumuman(direction) {
     const container = document.querySelector(".pengumuman-grid");
     const card = document.querySelector(".pengumuman-card");
+        if (!card) return;
 
     const cardWidth = card.offsetWidth + 20; // gap
 
@@ -391,3 +429,23 @@ function scrollPengumuman(direction) {
 
     container.style.transform = `translateX(${-pengumumanIndex * cardWidth}px)`;
 }
+
+function openPDF() {
+    const viewer = document.getElementById("pdfViewer");
+
+    viewer.innerHTML = `
+        <iframe src="/pdf/pewartaan-kadar-cukai.pdf"
+        width="100%" height="500px"></iframe>
+    `;
+}
+
+document.querySelectorAll("#mobile-sidebar a").forEach(link => {
+    link.addEventListener("click", function () {
+
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+
+    });
+});
+
+
