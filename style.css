@@ -47,7 +47,7 @@ html {
     display: flex;
     flex-direction: column;   /* THIS makes text appear above nav */
     align-items: center;
-    z-index: 99999;
+    z-index: 10000;
 
     background: rgba(0, 53, 73, 0.6); /* transparent blue */
     backdrop-filter: blur(5px); /* glass effect */
@@ -439,34 +439,44 @@ section {
     }
 }
 
+/* =========================
+   GOVERNMENT FOOTER (UPGRADED)
+========================= */
+
 .gov-footer{
     background: #0b2f3a;
-    color: #ffffff;
-    padding: 40px 20px 20px;
+    color: #fff;
     font-family: 'Poppins', sans-serif;
+    padding-top: 40px;
 }
 
-/* MAIN CONTAINER */
+/* MAIN GRID */
 .gov-footer-container{
     max-width: 1200px;
     margin: auto;
+    padding: 0 20px;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 40px;
 
+    align-items: start;
+}
+
+/* FOOTER COLUMNS */
+.gov-footer-col{
     text-align: left;
 }
 
-/* COLUMN */
+/* HEADINGS */
 .gov-footer-col h3{
-    font-size: 1.2em;
+    font-size: 1.3em;
     margin-bottom: 12px;
 }
 
 .gov-footer-col h4{
-    font-size: 1em;
-    margin-bottom: 10px;
+    font-size: 1.1em;
+    margin-bottom: 15px;
     border-left: 3px solid #4faa2e;
     padding-left: 10px;
 }
@@ -482,50 +492,96 @@ section {
 .gov-footer-col ul{
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .gov-footer-col ul li{
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .gov-footer-col ul li a{
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
+    font-size: 0.95em;
     opacity: 0.85;
     transition: 0.2s;
+    display: inline-block;
 }
 
 .gov-footer-col ul li a:hover{
     opacity: 1;
     color: #4faa2e;
-    padding-left: 6px;
+    transform: translateX(5px);
+}
+
+/* ICONS */
+.footer-icons{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-icons .icon{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 18px;
+
+    transition: 0.3s ease;
+}
+
+.footer-icons .icon:hover{
+    transform: translateY(-4px);
+    background: #4faa2e;
 }
 
 /* BOTTOM BAR */
 .gov-footer-bottom{
     margin-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 15px 20px;
     text-align: center;
-    padding-top: 15px;
     font-size: 0.85em;
-    opacity: 0.8;
+    opacity: 0.7;
+    border-top: 1px solid rgba(255,255,255,0.15);
 }
 
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 @media (max-width: 768px){
 
     .gov-footer-container{
-        grid-template-columns: 1fr;  /* stack vertically */
+        grid-template-columns: 1fr;
+        gap: 25px;
         text-align: left;
-        gap: 20px;
     }
 
-    .gov-footer{
-        padding: 30px 15px 15px;
+    .gov-footer-col{
+        text-align: left;
     }
 
-    .gov-footer-col h3,
+    .footer-icons{
+        justify-content: flex-start;
+    }
+
+    .gov-footer-col h3{
+        font-size: 1.1em;
+    }
+
     .gov-footer-col h4{
-        text-align: left;
+        font-size: 1em;
+    }
+
+    .gov-footer-col p,
+    .gov-footer-col ul li a{
+        font-size: 0.9em;
     }
 }
 
@@ -534,6 +590,15 @@ section {
     margin: auto;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -999,6 +1064,7 @@ section {
 .perkhidmatan-grid {
     display: flex;
     gap: 25px;
+    height: auto;
 
     overflow-x: auto;           /* IMPORTANT */
     overflow-y: hidden;
@@ -1031,6 +1097,7 @@ section {
 .perkhidmatan-card {
     min-width: 300px;
     max-width: 320px;
+    height: auto;
     flex-shrink: 0;
     scroll-snap-align: center;
 
@@ -1148,7 +1215,7 @@ transition:0.3s;
     overflow: hidden;
     opacity: 0;
     transform: translateY(-10px);
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
     
 }
 .service-header h3 {
@@ -1158,7 +1225,7 @@ transition:0.3s;
 
 /* OPEN STATE */
 .perkhidmatan-card.active .service-details {
-    max-height: 500px; /* big enough */
+    max-height: 2000px; /* big enough */
     opacity: 1;
     margin-top: 10px;
     transform: translateY(0);
@@ -1167,6 +1234,8 @@ transition:0.3s;
 .perkhidmatan-card.active {
     background: rgba(79,170,46,0.15);
     border: 1px solid rgba(79,170,46,0.6);
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 @media (max-width: 768px) {
@@ -1213,19 +1282,21 @@ transform:rotate(180deg);
 }
 
 .carousel-controls button {
-    background: rgba(255,255,255,0.15);
+    background: linear-gradient(135deg, #0b5e8e, #4faa2e);
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     color: white;
     font-size: 18px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .carousel-controls button:hover {
-    background: #4faa2e;
+    background: #003549;
+    transform: scale(1.1);
 }
 
 .section-smoke {
@@ -2027,17 +2098,12 @@ main {
 /* MENU LIST */
 #mobile-sidebar ul{
     list-style: none;
-    padding: 15px 0;
-    margin: 0;
-
-    flex: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
-
-    justify-content: flex-start;  /* ✅ MOVE TO TOP */
-    align-items: flex-start;
-
-    gap: 0;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 30px;
 }
 
 /* LINKS */
@@ -2084,14 +2150,11 @@ main {
     width: 300px;
     height: 100vh;
 
-    background: #0b2f3a;
+    background: #0b2f3a; /* formal navy */
     color: white;
 
     display: flex;
     flex-direction: column;
-
-    justify-content: flex-start;  /* ✅ FORCE TOP */
-    align-items: stretch;         /* IMPORTANT */
 
     transition: 0.25s ease;
     z-index: 9999;
@@ -2107,7 +2170,7 @@ main {
 .sidebar-header{
     padding: 25px 20px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    flex-shrink: 0; /* IMPORTANT */
+    flex-shrink: 0;
 }
 
 .sidebar-header h3{
@@ -2121,20 +2184,21 @@ main {
     opacity: 0.7;
 }
 
-/* MENU */
 #mobile-sidebar ul{
     list-style: none;
+    padding: 15px 0;
     margin: 0;
-    padding: 0;
 
+    flex: 1;
     display: flex;
     flex-direction: column;
 
-    justify-content: flex-start; /* ✅ TOP */
-    align-items: stretch;        /* FULL WIDTH LINKS */
+    justify-content: flex-start;  /* ✅ MOVE TO TOP */
+    align-items: flex-start;
 
-    flex: unset;  /* ❌ REMOVE CENTER PUSHING */
+    gap: 0;
 }
+
 
 #mobile-sidebar ul li{
     border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -2142,15 +2206,14 @@ main {
 
 /* LINKS */
 #mobile-sidebar ul li a{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    width: 100%;
+    display: block;
     padding: 14px 20px;
-
-    text-align: left;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    transition: 0.2s;
 }
+
 /* HOVER (subtle, formal) */
 #mobile-sidebar ul li a:hover{
     background: rgba(255,255,255,0.08);
@@ -2185,5 +2248,14 @@ main {
     z-index: 10000;
     border: 1px solid rgba(255,255,255,0.2);
 }
+
+
+.perkhidmatan-card.focus {
+    box-shadow: 0 0 0 3px rgba(79,170,46,0.4),
+                0 25px 60px rgba(0,53,73,0.25);
+    transform: scale(1.06);
+    transition: 0.3s ease;
+}
+
 
 
