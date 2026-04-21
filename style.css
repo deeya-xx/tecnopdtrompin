@@ -2599,5 +2599,37 @@ BORANG SCROLL UPGRADE (ADD HERE)
     to { transform: scale(1); opacity: 1; }
 }
 
+/* =========================
+   PENGUMUMAN MOBILE FIX
+========================= */
+
+@media (max-width: 768px) {
+
+    .pengumuman-section {
+        padding: 50px 15px;
+    }
+
+    .pengumuman-container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .pengumuman-card {
+        flex: 0 0 85%;   /* show 1 card per swipe view */
+    }
+
+    .pengumuman-content h3 {
+        font-size: 1em;
+    }
+
+    .pengumuman-content p {
+        font-size: 0.9em;
+    }
+
+    .pengumuman-card img {
+        height: 140px;
+    }
+}
+
 
 
