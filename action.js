@@ -415,23 +415,9 @@ window.addEventListener("click", function(e) {
     }
 });
 
-let pengumumanIndex = 0;
 
-function scrollPengumuman(direction) {
-    const container = document.querySelector(".pengumuman-grid");
-    const card = document.querySelector(".pengumuman-card");
-        if (!card) return;
 
-    const cardWidth = card.offsetWidth + 20; // gap
 
-    pengumumanIndex += direction;
-
-    const maxIndex = document.querySelectorAll(".pengumuman-card").length - 3;
-
-    if (pengumumanIndex < 0) pengumumanIndex = 0;
-    if (pengumumanIndex > maxIndex) pengumumanIndex = maxIndex;
-
-}
 
 function openPDF(file) {
     const overlay = document.getElementById("pdfOverlay");
@@ -508,18 +494,20 @@ const pengumumanGrid = document.querySelector(".pengumuman-grid");
 const pengumumanCard = document.querySelector(".pengumuman-card");
 
 function getPengumumanScroll() {
-    return pengumumanCard.offsetWidth + 20; // card + gap
+    const card = document.querySelector(".pengumuman-card");
+    if (!card) return 300;
+    return card.offsetWidth + 20;
 }
 
 function nextPengumuman() {
-    pengumumanGrid.scrollBy({
+    document.querySelector(".pengumuman-grid").scrollBy({
         left: getPengumumanScroll(),
         behavior: "smooth"
     });
 }
 
 function prevPengumuman() {
-    pengumumanGrid.scrollBy({
+    document.querySelector(".pengumuman-grid").scrollBy({
         left: -getPengumumanScroll(),
         behavior: "smooth"
     });
