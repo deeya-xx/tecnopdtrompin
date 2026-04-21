@@ -349,28 +349,31 @@ function generateQR() {
     });
 }
 
-function generateBorangQR() {
-    const qrBox = document.getElementById("qrBoxBorang");
+function generateBorangQR(file) {
 
-    if (!qrBox) {
-        console.error("qrBoxBorang NOT FOUND");
-        return;
-    }
+    const modal = document.getElementById("qrModal");
+    const box = document.getElementById("qrModalBox");
 
-    if (typeof QRCode === "undefined") {
-        alert("QR library not loaded");
-        return;
-    }
+    modal.style.display = "flex";
+    box.innerHTML = "";
 
-    qrBox.innerHTML = "";
-
-    new QRCode(qrBox, {
-        text: window.location.origin + "/pdf/pewartaan-kadar-cukai.pdf",
-        width: 180,
-        height: 180
+    new QRCode(box, {
+        text: window.location.origin + "/" + file,
+        width: 200,
+        height: 200
     });
 }
 
+function closeQRModal() {
+    document.getElementById("qrModal").style.display = "none";
+    document.getElementById("qrModalBox").innerHTML = "";
+}
+window.addEventListener("click", function(e) {
+    const modal = document.getElementById("qrModal");
+    if (e.target === modal) {
+        closeQRModal();
+    }
+});
 
 
 // =======================
@@ -430,13 +433,21 @@ function scrollPengumuman(direction) {
     container.style.transform = `translateX(${-pengumumanIndex * cardWidth}px)`;
 }
 
-function openPDF() {
+function openPDF(file) {
+    const overlay = document.getElementById("pdfOverlay");
     const viewer = document.getElementById("pdfViewer");
 
+    overlay.style.display = "flex";
+
     viewer.innerHTML = `
-        <iframe src="/pdf/pewartaan-kadar-cukai.pdf"
-        width="100%" height="500px"></iframe>
+        <iframe src="${file}" width="100%" height="100%"></iframe>
     `;
+}
+
+// CLOSE PDF
+function closePDF() {
+    document.getElementById("pdfOverlay").style.display = "none";
+    document.getElementById("pdfViewer").innerHTML = "";
 }
 
 document.querySelectorAll("#mobile-sidebar a").forEach(link => {
@@ -447,5 +458,50 @@ document.querySelectorAll("#mobile-sidebar a").forEach(link => {
 
     });
 });
+
+
+window.addEventListener("load", () => {
+    document.getElementById("qrBoxBorang").innerHTML = "";
+});
+
+const pdfUrl = "pdf/pewartaan-kadar-cukai.pdf";
+
+function loadPDFPreview() {
+    const container = document.getElementById("pdfPreview");
+    if (!container) return;
+
+    pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
+
+        pdf.getPage(1).then(page => {
+
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d");
+
+            const viewport = page.getViewport({ scale: 0.6 });
+
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+
+            page.render(renderContext).promise.then(() => {
+                container.innerHTML = "";
+                container.appendChild(canvas);
+            });
+
+        });
+
+    }).catch(err => {
+        container.innerHTML = "Failed to load preview";
+        console.error(err);
+    });
+}
+
+window.onload = function () {
+    loadPDFPreview();
+};
 
 
