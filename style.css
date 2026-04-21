@@ -1388,6 +1388,8 @@ transform:rotate(180deg);
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    scroll-padding-left: 10px;
+    scroll-padding-right: 10px;
 
     padding: 15px 5px;
 
