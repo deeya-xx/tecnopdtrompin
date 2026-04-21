@@ -431,7 +431,6 @@ function scrollPengumuman(direction) {
     if (pengumumanIndex < 0) pengumumanIndex = 0;
     if (pengumumanIndex > maxIndex) pengumumanIndex = maxIndex;
 
-    container.style.transform = `translateX(${-pengumumanIndex * cardWidth}px)`;
 }
 
 function openPDF(file) {
