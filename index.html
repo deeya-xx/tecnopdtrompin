@@ -378,7 +378,7 @@ SMART PETA (KIOSK MODE)
       <!-- MAP -->
       <div class="peta-map" id="mapBox">
 
-        <button class="close-map-btn" onclick="toggleFullscreenMap()">✖</button>
+       <button class="close-map-btn" onclick="closeMap()">✖</button>
 
         <iframe
           id="map"
@@ -888,6 +888,18 @@ window.addEventListener("scroll", () => {
         <div id="qrModalBox"></div>
         <p style="margin-top:10px; font-size:14px;">Imbas untuk muat turun borang</p>
     </div>
+</div>
+    <div id="mapOverlay" class="pdf-overlay">
+
+    <button class="pdf-close" onclick="closeMap()">✕</button>
+
+    <div class="pdf-viewer">
+        <iframe 
+            src="https://www.google.com/maps?q=Pejabat%20Daerah%20dan%20Tanah%20Rompin&output=embed"
+            style="width:100%; height:100%; border:0;">
+        </iframe>
+    </div>
+
 </div>
 
 
