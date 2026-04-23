@@ -234,12 +234,21 @@ function openGoogleMaps() {
 }
 
 function startVoiceGuide() {
-    const msg = new SpeechSynthesisUtterance(
-        "Selamat datang ke sistem peta Pejabat Daerah dan Tanah Rompin. Sila tekan butang arah untuk navigasi."
-    );
+    if (!('speechSynthesis' in window)) {
+        alert("Browser tidak menyokong suara");
+        return;
+    }
 
-    msg.lang = "ms-MY";
-    speechSynthesis.speak(msg);
+    const text = "Anda kini berada di Pejabat Daerah dan Tanah Rompin. Sila gunakan butang arah untuk navigasi, atau cari lokasi menggunakan kotak carian.";
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "ms-MY"; // Malay voice
+    speech.rate = 0.9;
+    speech.pitch = 1;
+
+    window.speechSynthesis.cancel(); // stop previous
+    window.speechSynthesis.speak(speech);
 }
 
 
