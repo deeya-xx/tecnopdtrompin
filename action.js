@@ -238,20 +238,13 @@ function closeMap() {
 }
 
 function startVoiceGuide() {
-    if (!('speechSynthesis' in window)) {
-        alert("Browser tidak menyokong suara");
-        return;
-    }
 
-    const text = "Anda kini berada di Pejabat Daerah dan Tanah Rompin. Sila gunakan butang arah untuk navigasi, atau cari lokasi menggunakan kotak carian.";
+    const text = "Anda kini berada di Pejabat Daerah dan Tanah Rompin. Sila gunakan peta untuk navigasi.";
 
     const speech = new SpeechSynthesisUtterance(text);
 
     speech.lang = "ms-MY"; // Malay voice
-    speech.rate = 0.9;
-    speech.pitch = 1;
 
-    window.speechSynthesis.cancel(); // stop previous
     window.speechSynthesis.speak(speech);
 }
 
@@ -524,6 +517,13 @@ function prevPengumuman() {
         left: -getPengumumanScroll(),
         behavior: "smooth"
     });
+}
+function openMapOverlay() {
+    document.getElementById("mapBox").classList.add("fullscreen");
+}
+
+function toggleFullscreenMap() {
+    document.getElementById("mapBox").classList.remove("fullscreen");
 }
 
 
