@@ -39,7 +39,7 @@ body {
 html {
     scroll-behavior: smooth;
     /* To scrolling animation */
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: none;
 }
 
 #header {
@@ -305,7 +305,6 @@ section {
     justify-content: center;
     align-items: center;
     position: relative;
-    scroll-snap-align: start;
     padding: 80px 20px;
 }
 
@@ -337,7 +336,6 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    scroll-snap-align: start;
 }
 
 /* container */
@@ -1056,7 +1054,6 @@ section {
     justify-content: center;
     align-items: center;
     position: relative;
-    scroll-snap-align: start;
 }
 
 .perkhidmatan-container {
@@ -1366,7 +1363,6 @@ transform:rotate(180deg);
     align-items: center;
 
     position: relative;
-    scroll-snap-align: start;
     overflow: hidden;
 }
 
@@ -1391,7 +1387,7 @@ transform:rotate(180deg);
     overflow-x: auto;
     overflow-y: hidden;
 
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scroll-padding-left: 10px;
@@ -1399,7 +1395,7 @@ transform:rotate(180deg);
 
     padding: 15px 5px;
 
-    cursor: grab;
+    cursor:default;
 }
 
 /* HIDE SCROLLBAR */
@@ -1574,7 +1570,6 @@ transform:rotate(180deg);
     justify-content: center;
     align-items: center;
     position: relative;
-    scroll-snap-align: start;
     padding: 80px 20px;
 }
 
@@ -1836,7 +1831,6 @@ transform:rotate(180deg);
     justify-content: center;
     align-items: center;
     position: relative;
-    scroll-snap-align: start;
 }
 
 /* container */
@@ -2247,9 +2241,7 @@ main {
 }
 
 
-#borang {
-    scroll-snap-align: start;
-}
+
 
 
 /* =========================
