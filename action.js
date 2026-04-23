@@ -230,7 +230,11 @@ function toggleFullscreenMap() {
 
 
 function openGoogleMaps() {
-    window.open("https://www.google.com/maps/place/Rompin", "_blank");
+    document.getElementById("mapOverlay").style.display = "flex";
+}
+
+function closeMap() {
+    document.getElementById("mapOverlay").style.display = "none";
 }
 
 function startVoiceGuide() {
