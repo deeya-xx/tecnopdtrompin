@@ -376,21 +376,28 @@ SMART PETA (KIOSK MODE)
 
 
       <!-- MAP -->
-      <div class="peta-map" id="mapBox">
+     <div class="peta-map" id="mapBox">
 
-       <button class="close-map-btn" onclick="closeMap()">✖</button>
+    <!-- CLOSE BUTTON -->
+    <button class="close-map-btn" onclick="toggleFullscreenMap()">✖</button>
 
-        <iframe
-          id="map"
-          src="https://www.google.com/maps?q=Pejabat%20Daerah%20dan%20Tanah%20Rompin&output=embed"
-          loading="lazy">
-        </iframe>
+    <!-- YOUR CUSTOM ARROW -->
+    <button class="custom-map-arrow" onclick="openMapOverlay()">⬆</button>
 
+    <!-- BLOCK GOOGLE TOP BAR -->
+    <div class="map-blocker"></div>
 
-        <!-- animated pointer -->
-        <div class="map-pointer"></div>
+    <!-- MAP -->
+    <iframe
+      id="map"
+      src="https://www.google.com/maps?q=Pejabat%20Daerah%20dan%20Tanah%20Rompin&output=embed&z=17"
+      loading="lazy">
+    </iframe>
 
-      </div>
+    <!-- POINTER -->
+    <div class="map-pointer"></div>
+
+</div>
 
       <!-- SIDE INFO -->
       <div class="peta-info">
