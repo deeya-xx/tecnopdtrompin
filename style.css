@@ -2702,5 +2702,47 @@ BORANG SCROLL UPGRADE (ADD HERE)
     transform: scale(1.1);
 }
 
+/* ===== MAP FIX ===== */
+
+/* block Google top UI (arrow area) */
+.map-blocker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 5;
+}
+
+/* custom arrow button */
+.custom-map-arrow {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    background: #0a2540;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* fullscreen mode */
+.peta-map.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    background: black;
+}
+
+.peta-map.fullscreen iframe {
+    height: 100%;
+}
+
 
 
