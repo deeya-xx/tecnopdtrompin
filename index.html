@@ -1,49 +1,918 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pejabat Daerah & Tanah Rompin</title>
-  <link rel="icon" type="image/png" href="images/logo3.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore the interactive Halloween Party project, showcasing responsive design, animations, and web development techniques. Immerse yourself in the spooky ambiance of Halloween.">
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      overflow: hidden;
-    }
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/pdtrompin.jpg">
 
-    .video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: black;
+    <!-- Page Title -->
+    <title>Pejabat Daerah dan Tanah Rompin</title>
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* IMPORTANT: shows FULL video */
-    }
-  </style>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Open Graph meta tags for image sharing -->
+    <meta property="og:title" content="Parallax Scroll Site">
+    <meta property="og:description"
+        content="Explore the interactive Halloween Party project and Immerse yourself in the spooky ambiance of Halloween.">
+    <meta property="og:image" content="https://drive.google.com/uc?id=1GFbBHTi7w8weRVqLJ7bkofezEEGg4U30">
+    <meta property="og:type" content=”website” />
+    <!-- <meta property="og:url" content="https://parallax-website-by-vineet.netlify.app/"> -->
 </head>
 
 <body>
 
-  <div class="video-container">
-    <video autoplay loop muted playsinline>
-      <source src="images/pdtrompin.mp4" type="video/mp4">
-    </video>
+  <!-- Header / Navigation -->
+  <header id="header">
+    
+  <div class="header-left">
+    <a href="#" class="logo">
+      <img src="images/logo3.png" alt="PDT Logo">
+    </a>
+    <div class="jabatan-name">
+      Pejabat Daerah dan Tanah Rompin<br>
+    </div>
   </div>
 
+    <!-- HAMBURGER BUTTON (MOBILE ONLY) -->
+  <div id="menu-toggle">☰</div>
+<div id="overlay"></div>
+
+<aside id="mobile-sidebar">
+    <div class="sidebar-header">
+        <h3>MENU UTAMA</h3>
+        <p>Sistem Maklumat Rasmi</p>
+    </div>
+    <ul>
+        <li><a href="#utama">🏠 Utama</a></li>
+        <li><a href="#perkhidmatan">🛠️ Perkhidmatan</a></li>
+        <li><a href="#pengumuman">🔔 Pengumuman</a></li>
+        <li><a href="#peta">🗺 Peta</a></li>
+        <li><a href="#faq">💬 FAQ</a></li>
+        <li><a href="#borang">📝 Borang</a></li>
+        <li><a href="#footer">☏ Hubungi</a></li>
+    </ul>
+<div class="sidebar-footer">
+        <p>© Sistem Rasmi Kerajaan</p>
+    </div>
+</aside>
+
+  
+</header>
+
+  <!-- Top Section (Parallax Above Water) -->
+  <section class="top-section" id="utama">
+    <div class="sea-life">
+      
+      <div class="bubbles">
+        <img src="images/sea/daun.png" alt="">
+        <img src="images/sea/daun.png" alt="">
+        <img src="images/sea/daun.png" alt="">
+      </div>
+    </div>
+    <img src="images/land/sky.png" id="sky" class="wallpaper">
+    <img src="images/land/sun.png" id="sun">
+    <img src="images/land/mountains.png" id="mountains" class="wallpaper">
+    <img src="images/land/cloud.png" id="cloud">
+    <h1 id="text">
+        <span>Selamat Datang ke</span><br>
+        Pejabat Daerah dan Tanah Rompin<br>
+    </h1>
+    <!-- Date and Time -->
+  <p id="datetime"></p>
+    <p id="touch">Sila Sentuh Skrin Untuk Masuk ke Menu Utama</p>
+
+    
+
+    <img src="images/land/waterfall.png" id="forest">
+    <img src="images/land/bird1.png" id="bird1">
+    <img src="images/land/bird2.png" id="bird2">
+    <a href="#sec" id="explore">Lihat Maklumat</a>
+  </section>
+
+  <!-- Middle Section (Below Water / Content) -->
+  <main class="sec" id="sec">
+    <!-- Background layers for parallax -->
+    <div class="undersea-layer">
+      <img src="images/sea/map1.png" id="sea1" class="undersea">
+      
+    </div>
+
+    <section class="gov-section">
+
+    <div class="gov-container">
+
+        <div class="gov-header">
+            <h2>VISI & MISI</h2>
+            <div class="gov-line"></div>
+        </div>
+
+        <div class="gov-grid">
+
+            <!-- VISI -->
+            <div class="gov-card">
+                <h3>VISI </h3>
+                <p>
+                    Menjadikan Pejabat Daerah dan Tanah Rompin sebagai Peneraju Kecemerlangan
+        Pentadbiran Daerah dan Tanah.
+                </p>
+            </div>
+
+            <!-- MISI -->
+            <div class="gov-card">
+                <h3>MISI</h3>
+                <p>Beriltizam Untuk Memberikan Perkhidmatan Yang Cemerlang, Berkualiti Dan Berintegriti</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+PERKHIDMATAN (3RD PAGE)
+========================= -->
+<section class="perkhidmatan-section" id="perkhidmatan">
+
+<div class="perkhidmatan-container">
+  <div class="carousel-controls">
+    <button onclick="scrollLeftCards()">&#10094;</button>
+    <button onclick="scrollRightCards()">&#10095;</button>
+</div>
+
+<div class="gov-header">
+<h2>PERKHIDMATAN</h2>
+<div class="gov-line"></div>
+</div>
+
+<div class="perkhidmatan-grid">
+
+<!-- 1 -->
+<div class="perkhidmatan-card">
+
+<img src="images/sea/tanah.jpg" class="service-img">
+
+<div class="service-header">
+<h3>Pengurusan Tanah</h3>
+<!-- THIS IS THE TOGGLE BUTTON -->
+        <button class="toggle-btn">></button>
+</div>
+
+<div class="service-details">
+
+<ul>
+<li>Urusan berkaitan pemilikan dan pentadbiran tanah.</li>
+<li>Pendaftaran pindah milik dan gadaian</li>
+<li>Permohonan tanah kerajaan dan LPS</li>
+<li>Semakan dan bayaran cukai tanah</li>
+<li>Tukar syarat dan pecah sempadan tanah</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- 2 -->
+<div class="perkhidmatan-card">
+
+<img src="images/sea/pantai.avif" class="service-img">
+
+<div class="service-header">
+<h3>Pembangunan Daerah</h3>
+<!-- THIS IS THE TOGGLE BUTTON -->
+        <button class="toggle-btn">></button>
+</div>
+
+<div class="service-details">
+
+<ul>
+<li>Perancangan projek pembangunan</li>
+<li>Pemantauan projek prasarana</li>
+<li>Penyelarasan bantuan kerajaan</li>
+<li>Kerjasama komuniti setempat</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- 3 -->
+<div class="perkhidmatan-card">
+
+<img src="images/sea/peta.jpg" class="service-img">
+
+<div class="service-header">
+<h3>Pentadbiran Daerah</h3>
+<!-- THIS IS THE TOGGLE BUTTON -->
+        <button class="toggle-btn">></button>
+</div>
+
+<div class="service-details">
+
+<ul>
+<li>Aduan awam melalui sistem SISPAA</li>
+<li>Temu janji Pegawai Daerah</li>
+<li>Khidmat pelanggan</li>
+<li>Pengurusan aset dan ICT</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- 4 -->
+<div class="perkhidmatan-card">
+
+<img src="images/sea/rompin.png" class="service-img">
+
+<div class="service-header">
+<h3>Perundangan</h3>
+<!-- THIS IS THE TOGGLE BUTTON -->
+        <button class="toggle-btn">></button>
+</div>
+
+<div class="service-details">
+
+<ul>
+<li>Nasihat undang-undang pentadbiran tanah</li>
+<li>Sokongan perundangan pentadbiran daerah</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- =========================
+PENGUMUMAN (4TH PAGE)
+========================= -->
+<section class="pengumuman-section" id="pengumuman">
+
+  <div class="pengumuman-container">
+
+    <!-- HEADER -->
+    <div class="gov-header">
+      <h2>PENGUMUMAN</h2>
+      <div class="gov-line"></div>
+    </div>
+
+    <div class="pengumuman-controls">
+    <button onclick="prevPengumuman()">&#10094;</button>
+    <button onclick="nextPengumuman()">&#10095;</button>
+</div>
+
+    <!-- GRID -->
+    <div class="pengumuman-grid-wrapper">
+  <div class="pengumuman-grid">
+
+      <!-- CARD 1 -->
+      <div class="pengumuman-card">
+        <img src="images/1.jpeg" alt="">
+        <div class="pengumuman-content">
+          <h3>Pengambilan Pelatih GIATMARA Rompin Sesi Julai 2026</h3>
+          <p>GIATMARA Rompin membuka pengambilan pelatih baharu Julai 2026 bagi kursus kemahiran seperti Automotif dan Pendawaian Elektrik (PW2) dengan latihan percuma, elaun bulanan, serta sijil diiktiraf JPK dan ST untuk meningkatkan peluang kerjaya.</p>
+        
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="pengumuman-card">
+        <img src="images/2.jpeg" alt="">
+        <div class="pengumuman-content">
+          <h3>Kejohanan Pemilihan Badminton MAKSAK Pahang 2026</h3>
+          <p>MAKSAK Pahang akan menganjurkan Kejohanan Pemilihan Badminton pada 2 Mei 2026 di Kuantan khas untuk penjawat awam ahli gabungan, dengan pendaftaran melalui QR code yang disediakan.</p>
+
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="pengumuman-card">
+        <img src="images/3.jpeg" alt="">
+        <div class="pengumuman-content">
+          <h3>Pesta Narik Udang Rompin 2026</h3>
+          <p>Pertandingan Pesta Narik Udang akan diadakan pada 11 April 2026 di Pantai Hiburan Rompin dengan penyertaan terbuka kepada semua, menawarkan hadiah wang tunai dan bertujuan mengeratkan hubungan komuniti melalui aktiviti rekreasi berpasukan.</p>
+        
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="pengumuman-card">
+        <img src="images/4.jpeg" alt="">
+        <div class="pengumuman-content">
+          <h3>Amaran Cuaca Panas dan Fasa Peralihan Monsun 2026</h3>
+          <p>Malaysia dijangka mengalami cuaca panas berpanjangan akibat El Niño serta Fasa Peralihan Monsun bermula 29 Mac hingga Mei 2026 yang boleh menyebabkan hujan lebat dan angin kencang, orang ramai dinasihatkan sentiasa berwaspada dan merujuk maklumat cuaca METMalaysia.</p>
+    
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="pengumuman-card">
+        <img src="images/5.jpeg" alt="">
+        <div class="pengumuman-content">
+          <h3>Amalan Jimat Tenaga Elektrik untuk Kehidupan Lestari</h3>
+          <p>Orang ramai digalakkan mengamalkan penjimatan elektrik seperti penggunaan lampu LED, tetapan penghawa dingin 24°C, serta penggunaan peralatan cekap tenaga bagi mengurangkan kos dan membantu kelestarian alam sekitar.</p>
+    
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</section>
+
+<!-- =========================
+SMART PETA (KIOSK MODE)
+========================= -->
+<section class="peta-section" id="peta">
+
+  <div class="peta-container">
+
+    <div class="gov-header">
+      <h2>PETA</h2>
+      <div class="gov-line"></div>
+    </div>
+
+    <!-- ACTION BAR -->
+    <div class="peta-actions">
+
+      
+
+      <button onclick="openGoogleMaps()">🧭 Arah</button>
+
+      <button onclick="startVoiceGuide()">🎤 Suara</button>
+
+      <button onclick="generateQR()">📱 QR</button>
+
+    </div>
+
+    <!-- SEARCH BAR -->
+      <div class="map-tools">
+        <input id="mapSearch" type="text" placeholder="Cari lokasi..." />
+        <button onclick="searchLocation()">🔎 Cari</button>
+        <button onclick="findNearby()">📍 Berhampiran</button>
+      </div>
+  
+
+    <!-- MAIN -->
+    <div class="peta-layout">
+
+
+
+      <!-- MAP -->
+     <div class="peta-map" id="mapBox">
+
+    <!-- CLOSE BUTTON -->
+    <button class="close-map-btn" onclick="toggleFullscreenMap()">✖</button>
+
+
+
+    <!-- BLOCK GOOGLE TOP BAR -->
+    <div class="map-blocker"></div>
+
+    <!-- MAP -->
+    <iframe
+      id="map"
+      src="https://www.google.com/maps?q=Pejabat%20Daerah%20dan%20Tanah%20Rompin&output=embed&z=17"
+      loading="lazy">
+    </iframe>
+
+    <!-- POINTER -->
+    <div class="map-pointer"></div>
+
+</div>
+
+      <!-- SIDE INFO -->
+      <div class="peta-info">
+
+        <div class="peta-card">
+          <h3>📍 Lokasi Utama</h3>
+          <p>Pejabat Daerah & Tanah Rompin</p>
+        </div>
+
+        <div class="peta-card">
+          <h3>🕒 Operasi</h3>
+          <p>Isnin - Jumaat<br>8:00 a.m - 5:00 p.m</p>
+        </div>
+
+        <div class="peta-card highlight">
+          <h3>📡 Navigasi Pintar</h3>
+          <p>Sistem kiosk automatik pandu pengguna</p>
+        </div>
+
+        <!-- QR BOX -->
+        <div class="qr-box" id="qrBox"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+FAQ SECTION (NEW PAGE UNDER PETA)
+========================= -->
+<section class="faq-section" id="faq">
+
+  <div class="faq-container">
+
+    <div class="gov-header">
+      <h2>SOALAN LAZIM (FAQ)</h2>
+      <div class="gov-line"></div>
+    </div>
+
+    <div class="faq-grid">
+
+      <!-- 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Siapa yang perlu membayar Cukai Tanah?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Seksyen 95 Kanun Tanah Negara 1965: Setiap pemilik tanah berdaftar atau wakil bagi pihaknya bertanggungjawab untuk menjelaskan Cukai Tanah.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Mengapa perlu membayar Cukai Tanah?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Seksyen 95 Kanun Tanah Negara 1965: Pemilik tanah wajib membayar Cukai Tanah kepada Pihak Berkuasa Negeri setiap tahun tanpa perlu menunggu bil.
+            Bil hanya sebagai pemberitahuan sahaja.
+            <br><br>
+            Jika tidak menerima bil, pemilik boleh mendapatkan di Pejabat Daerah dan Tanah dengan membawa geran atau resit tahun sebelumnya.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Bilakah perlu membayar Cukai Tanah?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Seksyen 94 Kanun Tanah Negara 1965: Bayaran perlu dibuat dari 1 Januari hingga 31 Mei setiap tahun.
+            <br><br>
+            Selepas 1 Jun, ia dianggap tunggakan dan dikenakan denda lewat sebanyak 10%.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Bagaimana pembayaran boleh dibuat?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Pembayaran boleh dibuat melalui:
+            <br><br>
+            • Tunai<br>
+            • Bank draf / Wang Pos / Cek atas nama pentadbir<br>
+            • Online CIMB Clicks<br>
+            • FPX (https://fpxptg.pahang.gov.my/)
+            <br><br>
+            Bank terlibat:<br>
+            • CIMB Bank<br>
+            • Maybank<br>
+            • Bank Islam<br>
+            • Public Bank<br>
+            • Hong Leong Bank
+          </p>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Di mana pembayaran boleh dibuat?</h3>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Pembayaran boleh dibuat di semua Pejabat Daerah dan Tanah dalam Negeri Pahang.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================
+BORANG PAGE (DOWNLOAD FORMS)
+========================= -->
+<section class="borang-section" id="borang">
+
+  <div class="borang-container">
+
+    <!-- HEADER -->
+    <div class="gov-header">
+      <h2>MUAT TURUN BORANG</h2>
+      <div class="gov-line"></div>
+    </div>
+
+    <!-- GRID -->
+    <div class="borang-scroll">
+   
+
+      <!-- 1 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Aduan Kerosakan Bangunan Pejabat</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Aduan Kerosakan Bangunan Pejabat.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Aduan Kerosakan Bangunan Pejabat.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Aduan Kerosakan Peralatan ICT</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Aduan Kerosakan Peralatan ICT.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Aduan Kerosakan Peralatan ICT.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Aktiviti Laman Web</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Aktiviti Laman Web.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Aktiviti Laman Web.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Akuan Terima Kunci</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Akuan Terima Kunci.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Akuan Terima Kunci.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Insentif Pelajar Cemerlang PEDATAR</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Insetif Pelajar Cemerlang Pedatar.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Insetif Pelajar Cemerlang Pedatar.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Keluar Masuk Kuartes</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Keluar Masuk Kuartes.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Keluar Masuk Kuartes.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Permohonan Bertugas Di Luar Pejabat</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Permohonan Bertugas Di Luar Pejabat.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Permohonan Bertugas Di Luar Pejabat.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Permohonan Kenderaan Jabatan</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Permohonan Kenderaan Jabatan.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Permohonan Kenderaan Jabatan.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Permohonan Pinjaman Peralatan ICT</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Permohonan Pinjaman Peralatan ICT.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Permohonan Pinjaman Peralatan ICT.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Borang Pesanan Makanan</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Borang Pesanan Makanan.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Borang Pesanan Makanan.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="borang-card">
+       <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Brochure Bayar Cukai Rompin 2017</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Brochure Bayar Cukai Pejabat Daerah Dan Tanah Rompin Tahun 2017.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Brochure Bayar Cukai Pejabat Daerah Dan Tanah Rompin Tahun 2017.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Risalah Cukai Tanah Rompin</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/Risalah Cukai Tanah Pejabat Daerah Dan Tanah Rompin.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/Risalah Cukai Tanah Pejabat Daerah Dan Tanah Rompin.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="borang-card">
+        <div class="borang-preview">
+          <img src="images/pdf.png" alt="PDF Preview">
+      </div>
+        <div class="borang-overlay">
+          <h3>Pewartaan Kadar Cukai</h3>
+          <div class="borang-actions">
+            <button onclick="openPDF('pdf/pewartaan-kadar-cukai.pdf')">Lihat PDF</button>
+            <button onclick="generateBorangQR('pdf/pewartaan-kadar-cukai.pdf')">QR</button>
+          </div>
+          <div class="qr-box"></div>
+        </div>
+      </div>
+
+    
+    </div>
+  </div>
+</section>
+</main>
+
+   
+
+    <!-- Animated fish and seabed -->
+    
+
+  <footer class="gov-footer" id="footer">
+
+    <div class="gov-footer-container">
+      
+
+        <!-- LEFT: AGENCY INFO -->
+        <div class="gov-footer-col">
+            <h3>Pejabat Daerah dan Tanah Rompin</h3>
+            <p>
+                Kompleks Pejabat Kerajaan Negeri Daerah Rompin<br>
+                26800 Kuala Rompin, Pahang Darul Makmur
+            </p>
+        </div>
+
+        <!-- CENTER: QUICK LINKS -->
+        <div class="gov-footer-col">
+            <h4>Pautan Pantas</h4>
+            <ul>
+                <li><a href="#utama">Utama</a></li>
+                <li><a href="#perkhidmatan">Perkhidmatan</a></li>
+                <li><a href="#pengumuman">Pengumuman</a></li>
+                <li><a href="#peta">Peta</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#borang">Borang</a></li>
+            </ul>
+        </div>
+
+      <div class="gov-footer-col">
+    <h4>Hubungi Kami</h4>
+
+    <div class="footer-icons">
+
+        <a href="https://www.facebook.com/pdt.rompin" target="_blank" class="icon facebook">
+          <i class="fab fa-facebook-f"></i>
+      </a>
+
+        <a href="#peta" class="icon map">
+            <i class="fas fa-map-marker-alt"></i>
+        </a>
+
+        <a href="javascript:void(0)" class="icon phone" onclick="showPhonePopup()">
+          <i class="fas fa-phone"></i>
+      </a>
+
+    </div>
+</div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="gov-footer-bottom">
+        <p>© 2026 Pejabat Daerah dan Tanah Rompin. Hak Cipta Terpelihara.</p>
+    </div>
+
+</footer>
+
+  <!-- Back to top -->
+  <a id="top" href="#"><i class="fas fa-arrow-up"></i></a>
+  <div id="serviceModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeService()">&times;</span>
+
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<div id="phoneModal" class="phone-modal">
+    <div class="phone-modal-content">
+        <span class="close-btn" onclick="closePhonePopup()">&times;</span>
+
+        <h2>Hubungi Kami</h2>
+
+        <p><strong>No. Telefon:</strong> 09 414 5205</p>
+        <p><strong>No. Faks:</strong> 09 414 6818</p>
+    </div>
+</div>
+
+<script src="action.js"></script>
+
+<script>
+const sidebar = document.getElementById("mobile-sidebar");
+const toggle = document.getElementById("menu-toggle");
+const overlay = document.getElementById("overlay");
+const links = document.querySelectorAll("#mobile-sidebar a");
+
+// OPEN / CLOSE
+function openMenu(){
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+}
+
+function closeMenu(){
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+toggle.onclick = () => {
+    sidebar.classList.contains("active") ? closeMenu() : openMenu();
+};
+
+overlay.onclick = closeMenu;
+
+// AUTO CLOSE ON CLICK
+links.forEach(link => {
+    link.onclick = closeMenu;
+});
+
+
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        if (scrollY >= top) current = section.id;
+    });
+
+    links.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
+});
+</script>
+<div id="pdfOverlay" class="pdf-overlay">
+
+    <div class="pdf-header">
+        <button class="pdf-close" onclick="closePDF()">✕</button>
+    </div>
+
+    <div id="pdfViewer" class="pdf-viewer"></div>
+
+</div>
+<!-- QR MODAL -->
+<div id="qrModal" class="qr-modal">
+    <div class="qr-modal-content">
+        <span class="qr-close" onclick="closeQRModal()">✖</span>
+        <h3>QR Code Borang</h3>
+        <div id="qrModalBox"></div>
+        <p style="margin-top:10px; font-size:14px;">Imbas untuk muat turun borang</p>
+    </div>
+</div>
+    <div id="mapOverlay" class="pdf-overlay">
+
+    <button class="pdf-close" onclick="closeMap()">✕</button>
+
+    <div class="pdf-viewer">
+        <iframe 
+            src="https://www.google.com/maps?q=Pejabat%20Daerah%20dan%20Tanah%20Rompin&output=embed"
+            style="width:100%; height:100%; border:0;">
+        </iframe>
+    </div>
+
+</div>
+
+
 </body>
+<!-- Always include javascript at end of file...just above html tag -->
+
+
 </html>
